@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+  
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>R Introduction Part 2 | Zichao Yang&#39;s Blog</title>
+  <meta name="author" content="Zichao Yang">
+  
+  <meta name="description" content="This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.
+Most fi">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="R Introduction Part 2"/>
+  <meta property="og:site_name" content="Zichao Yang&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <meta http-equiv="Content-Language" content="en"/>
+  
+
+  <link href="/img/32.png" rel="icon">
+  
+    <link rel="apple-touch-icon" href="/img/16.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/16.png">
+    
+
+  <link rel="alternate" href="/atom.xml" title="Zichao Yang&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+  <style type="text/css">
+  /* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) */
+body{ -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+
+  
+
+  
+    article .post-content-index .entry{max-height: 550px; overflow:hidden;}
+  
+</style>
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'null', 'auto');
+  ga('send', 'pageview');
+ 
+</script>
+
+
+
+
+  
+    
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball' rel='stylesheet' type='text/css'>
+    
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+
+
+
+</head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="padding">
+	<div class="alignleft logo">
+	  <h1><a href="/">Zichao Yang&#39;s Blog</a></h1>
+	</div>
+	<nav id="main-nav" class="alignright">
+		<input type="checkbox" id="toggle" />
+		<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick><i class="fa fa-bars"></i></label>
+	  <ul class="menu">
+	    
+	      <li><a href="/">Home</a></li>
+	    
+	      <li><a href="/archives">Archives</a></li>
+	    
+	      <li><a href="/about">About</a></li>
+	    
+	    
+	  </ul>
+	</nav>
+	<div class="clearfix"></div>
+</div>
+</header>
+  <div id="page-heading-wrap">
+  	<div class="inner">
+      <div class="padding">
+    		
+          <h1>R Introduction Part 2</h1>
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2015-12-12T19:45:21.000Z">2015-12-12</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
+
+                
+                  <a href="/">Zichao Yang</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
+              
+                <a href="#disqus_thread">Comments</a>
+
+              
+            </li>
+          </ul>
+        
+      </div>
+  	</div>
+  </div>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper" class="padding"><article class="post">
+  
+  
+    <div class="post-content">
+  
+      
+      <div class="entry">
+        
+          <ul>
+<li>This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.</li>
+<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a>.</li>
+<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="external">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="external">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
+</ul>
+<h1 id="Regression-wiht-R"><a href="#Regression-wiht-R" class="headerlink" title="Regression wiht R"></a>Regression wiht R</h1><p>As you can see in the following table, the term <em>regression</em> can be confusing because there are so many specialized varieties. In this class we will only focus on OLS, Nonparametric Regression and Robust Regression.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-6.jpg" alt="Varieties of Regression Analysis" title="Varieties of Regression Analysis"></p>
+<h2 id="OLS-regression"><a href="#OLS-regression" class="headerlink" title="OLS regression"></a>OLS regression</h2><p>$$\hat{Y_i}=\hat{\beta_0}+\hat{\beta_1}X_{1,i}+…+\hat{\beta_k}X_{k,i} \qquad i=1…n$$<br>where $n$ is the number of observatiions and $k$ is the number of predictor variables. In this equation:<br>$\hat{Y_i}$: is the predicted value of the dependent variable for observation $i$ (specifically, it is the estimated mean of the $Y$ distribution, conditional on the set of predictor values).<br>$X_{j,i}$: is the $j^{th}$ predictor value for the $i^{th}$ observation.<br>$\hat{\beta_0}$: is the intercept (the predicted value of $Y$ when all the predictor variables equal 0).<br>$\hat{\beta_j}$: is the regression coefficient for the $j^{th}$ predictor (slope representing the change in $Y$ for a unit change in $X_j$).</p>
+<p>To properly interpret the coefficients of the OLS model, you must satisfy a number of statistical assumptions:  </p>
+<ul>
+<li><strong>Normality</strong>—For fixed values of the independent variables, the dependent<br>variable is normally distributed.  </li>
+<li><strong>Independence</strong>—The $Y_i$ values are independent of each other.</li>
+<li><strong>Linearity</strong>—The dependent variable is linearly related to the independent<br>variables.</li>
+<li><strong>Homoscedasticity</strong>—The variance of the dependent variable doesn’t vary with the<br>levels of the independent variables.</li>
+</ul>
+<h2 id="lm-function"><a href="#lm-function" class="headerlink" title="lm(.) function"></a>lm(.) function</h2><ul>
+<li>OLS regression can be conducted by using <code>lm</code> function.  </li>
+<li>Usage of <code>lm</code>:  <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lm(formula, data, subset, weights, na.action, method = <span class="string">"qr"</span>, model = <span class="literal">TRUE</span>, x = <span class="literal">FALSE</span>, y = <span class="literal">FALSE</span>, qr= <span class="literal">TRUE</span>, singular.ok= <span class="literal">TRUE</span>, contrasts = <span class="literal">NULL</span>, offset, <span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>Note:</strong> You can find out more explanation on parameter settings by browsing R help documentation.  </p>
+<ul>
+<li>An example:<br>Suppose you need to conduct OLS regression on $y=c+x_1+x_2+…+x_n$, data have been stored in a data frame named <em>mydata</em>.<br>You type the following commend in RStudio to tell R to conduct OLS regression:  <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">reg=lm(y~x1+x2...+xn, mydata)</div><div class="line">```  </div><div class="line">&amp;emsp;&amp;emsp;Then you use the following commend to tell R to report the result:</div><div class="line">```R</div><div class="line">summary(reg)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>There are some symbols listed in the following table, which are commonly used in regression.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-7.JPG" alt="Symbols Commonly Used in Regression" title="Symbols Commonly Used in Regression"></p>
+<h2 id="Exercises"><a href="#Exercises" class="headerlink" title="Exercises"></a>Exercises</h2><p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-exercise1.jpg" alt="Exercises1" title="Exercises1"></p>
+<h2 id="Regression-diagnostics"><a href="#Regression-diagnostics" class="headerlink" title="Regression diagnostics"></a>Regression diagnostics</h2><ul>
+<li><p>Test whether the coefficients in regression model satisfy certain constrains.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(car)</div><div class="line">lht(reg, <span class="string">"the constrains you want to test"</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>Test whether some variables in your regression model are combined significant.<br>1.Use <code>anova</code> function</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">anova(reg1, reg2)</div><div class="line">``` </div><div class="line">&amp;emsp;&amp;emsp;2.Use `waldtest` function</div><div class="line">```R</div><div class="line"><span class="keyword">library</span>(lmtest)</div><div class="line">waldtest(reg1,reg2,vcov=vcovHC(reg2,type=<span class="string">"HC0"</span>))</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;Q: What is vcovHC? (Hint: Please find the answer in R help documentation or Google.)</p>
+<h2 id="Exercises-1"><a href="#Exercises-1" class="headerlink" title="Exercises"></a>Exercises</h2><p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-exercise2.jpg" alt="Exercises2" title="Exercises2"></p>
+<h2 id="Heteroskedasticity"><a href="#Heteroskedasticity" class="headerlink" title="Heteroskedasticity"></a>Heteroskedasticity</h2><ul>
+<li><p>What is heteroskedasticity?<br>One of our assumptions for linear regression is that the random error terms in our regression have same variance. However, there are times that regression ends with heteroskedasticity, which means the random error terms have different variances.</p>
+</li>
+<li><p>What may happen if heteroskedasticity does exist in our regression?<br>In this situation, t-test and F-test may become not reliable and misleading. Those supposed-to-be-significant coefficients are not significant any more.</p>
+</li>
+<li><p>How to discern heteroskedasticity?  </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1.Breusch-Pagan test</span></div><div class="line">reg=lm(y~x1+x2,mydata)</div><div class="line">bptest(reg)</div><div class="line"></div><div class="line"><span class="comment"># 2.White test</span></div><div class="line"><span class="comment">#This is one solution</span></div><div class="line">bptest(reg, ~x1+x2+I(x1^<span class="number">2</span>)+I(x2^<span class="number">2</span>)+x1:x2, mydata) </div><div class="line"><span class="comment">#This is another one.</span></div><div class="line"><span class="keyword">library</span>(bstats) </div><div class="line">white.test(reg)</div></pre></td></tr></table></figure>
+</li>
+<li><p>How to get robust standard error when heteroskedasticity appears?  </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># The first method (recommended)</span></div><div class="line"><span class="keyword">library</span>(sandwich)</div><div class="line"><span class="keyword">library</span>(lmtest)</div><div class="line">coeftest(reg, vcov=vcovHC(reg,”HC0”))</div><div class="line"><span class="comment"># The second method</span></div><div class="line"><span class="keyword">library</span>(car)</div><div class="line">sqrt(diag(vcovHC(reg1,type=<span class="string">"HC0"</span>)))</div><div class="line"><span class="comment"># The third method</span></div><div class="line"><span class="keyword">library</span>(car)</div><div class="line">sqrt(diag(hccm(reg1),type=<span class="string">"hc0"</span>)))</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Exercises-2"><a href="#Exercises-2" class="headerlink" title="Exercises"></a>Exercises</h2><p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-exercise3.jpg" alt="Exercises3" title="Exercises3"></p>
+
+        
+      </div>
+      <footer>
+        
+          
+          
+  
+  <div class="tags">
+    <a href="/tags/R/">R</a>
+  </div>
+
+          <div class="share">
+  
+</div>
+          
+<nav class="article-nav clearfix">
+ 
+ <div class="article-prev" >
+ <a href="/2015/12/13/r-intro-3/" title="R Introduction Part 3">
+  <i class="fa fa-long-arrow-left"></i>
+  <span>
+  R Introduction Part 3</span>
+</a>
+</div>
+
+
+<div class="article-next">
+<a href="/2015/12/11/r-intro-1/"  title="R Introduction Part 1">
+ <span>R Introduction Part 1
+</span>
+<i class="fa fa-long-arrow-right"></i>
+</a>
+</div>
+
+</nav>
+
+        
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+</article>
+
+
+<section id="comment">
+  <h2 class="title">Comments</h2>
+
+  
+
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright"><div class="padding">
+	
+	  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+	
+	  
+<div class="widget recent-post">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/05/28/threshold/">Introduction to Panel Threshold Model</a>
+      </li>
+    
+      <li>
+        <a href="/2016/03/18/quiz/">Python Quiz</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/13/r-intro-3/">R Introduction Part 3</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/12/r-intro-2/">R Introduction Part 2</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/11/r-intro-1/">R Introduction Part 1</a>
+      </li>
+    
+  </ul>
+</div>
+
+	
+	  
+	
+	  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  
+    <a href="/tags/Python/">Python<small>5</small></a>
+  
+    <a href="/tags/R/">R<small>3</small></a>
+  
+    <a href="/tags/Threshold-Model/">Threshold Model<small>1</small></a>
+  
+    <a href="/tags/李录谈现代化/">李录谈现代化<small>1</small></a>
+  
+</div>
+
+	
+</div></aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="padding">
+	<div class="alignleft">
+	  
+	  &copy; 2016 Zichao Yang
+	  
+	  Powerd by <a href="http://hexo.io/" target="_blank">hexo</a>
+	  and Theme by <a href="https://github.com/halfer53/metro-light" target="_blank">metro-light</a>
+	</div>
+
+	<div class="alignright">
+		
+		
+			<a href="https://github.com/Anonymous-Y" target="_blank" title="Zichao Yang Github"><i class="fa fa-github-square"></i></a>	
+		
+		
+		
+			<a href="http://www.weibo.com/2696788542" target="_blank" title="Zichao Yang Weibo"><i class="fa fa-weibo"></i></a>	
+		
+		
+		
+		
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+
+<div class="scroll-top"><i class="fa fa-arrow-circle-up"></i></div></footer>
+  
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc';
+
+		        (function() {
+		            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		        })();
+		</script>
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc'; 
+
+		(function () {
+		var s = document.createElement('script'); s.async = true;
+		s.type = 'text/javascript';
+		s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+		</script>
+
+  
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+$(window).scroll(function() {
+
+    if($(this).scrollTop() > 400) {
+        $('.scroll-top').fadeIn(200);
+    } else {
+        $('.scroll-top').fadeOut(200);
+    }
+});
+
+$('.scroll-top').bind('click', function(e) {
+    e.preventDefault();
+    $('body,html').animate({scrollTop:0},200);
+});
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

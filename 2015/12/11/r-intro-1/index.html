@@ -1,0 +1,425 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+  
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>R Introduction Part 1 | Zichao Yang&#39;s Blog</title>
+  <meta name="author" content="Zichao Yang">
+  
+  <meta name="description" content="This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.
+Most fi">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="R Introduction Part 1"/>
+  <meta property="og:site_name" content="Zichao Yang&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <meta http-equiv="Content-Language" content="en"/>
+  
+
+  <link href="/img/32.png" rel="icon">
+  
+    <link rel="apple-touch-icon" href="/img/16.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/16.png">
+    
+
+  <link rel="alternate" href="/atom.xml" title="Zichao Yang&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+  <style type="text/css">
+  /* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) */
+body{ -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+
+  
+
+  
+    article .post-content-index .entry{max-height: 550px; overflow:hidden;}
+  
+</style>
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'null', 'auto');
+  ga('send', 'pageview');
+ 
+</script>
+
+
+
+
+  
+    
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball' rel='stylesheet' type='text/css'>
+    
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+
+
+
+</head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="padding">
+	<div class="alignleft logo">
+	  <h1><a href="/">Zichao Yang&#39;s Blog</a></h1>
+	</div>
+	<nav id="main-nav" class="alignright">
+		<input type="checkbox" id="toggle" />
+		<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick><i class="fa fa-bars"></i></label>
+	  <ul class="menu">
+	    
+	      <li><a href="/">Home</a></li>
+	    
+	      <li><a href="/archives">Archives</a></li>
+	    
+	      <li><a href="/about">About</a></li>
+	    
+	    
+	  </ul>
+	</nav>
+	<div class="clearfix"></div>
+</div>
+</header>
+  <div id="page-heading-wrap">
+  	<div class="inner">
+      <div class="padding">
+    		
+          <h1>R Introduction Part 1</h1>
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2015-12-11T21:04:44.000Z">2015-12-11</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
+
+                
+                  <a href="/">Zichao Yang</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
+              
+                <a href="#disqus_thread">Comments</a>
+
+              
+            </li>
+          </ul>
+        
+      </div>
+  	</div>
+  </div>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper" class="padding"><article class="post">
+  
+  
+    <div class="post-content">
+  
+      
+      <div class="entry">
+        
+          <ul>
+<li>This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.</li>
+<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a>.</li>
+<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="external">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="external">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
+</ul>
+<h2 id="What-is-R"><a href="#What-is-R" class="headerlink" title="What is R ?"></a>What is R ?</h2><p>R was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, and is currently developed by the R Development Core Team, of which Chambers is a member. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. For more information, please see Wiki: <a href="https://en.wikipedia.org/wiki/R_(programming_language" target="_blank" rel="external">R(programming language)</a>)</p>
+<h2 id="Why-choose-R"><a href="#Why-choose-R" class="headerlink" title="Why choose R?"></a>Why choose R?</h2><ol>
+<li>R is a GNU project and totally free for everyone.</li>
+<li>R runs on a wide array of platforms, like  Windows, Unix and Mac OS. You can even run R programming on your iPhone or iPad!</li>
+<li>R can easily import data from various types of data sources, including text files, database management systems, statistical packages, and specialized data repositories. It can write data out to these systems as well.</li>
+<li>R contains advanced statistical routines not yet available in other packages. In fact, new methods become available for download on a weekly basis.</li>
+<li>R has state-of-the-art graphics capabilities (try the package: ggplot2).</li>
+<li>R has a global community of more than 2 million users and developers who voluntarily contribute their time and technical expertise to maintain, support and extend the R language and its environment, tools and infrastructure. </li>
+</ol>
+<h2 id="Comparing-R-with-other-mainstream-softwares"><a href="#Comparing-R-with-other-mainstream-softwares" class="headerlink" title="Comparing R with other mainstream softwares"></a>Comparing R with other mainstream softwares</h2><ul>
+<li>Stata: Widely used in Economics field.</li>
+<li>SAS: excels at coping with big data, the syntax is awkward.</li>
+<li>Matlab: has strong ability of numerical value calculation and is incredible large.</li>
+<li>SPSS: widely used in Business Management.</li>
+<li>Eviews: is good at Time Series Analysis.</li>
+</ul>
+<p>&emsp; <strong> Most important:</strong> They are all commercial software, which means they are not free to individual user.</p>
+<h2 id="Installation-of-R"><a href="#Installation-of-R" class="headerlink" title="Installation of R"></a>Installation of R</h2><ul>
+<li>How to get R?<br>R can be download from <a href="http://www.cran.r-project.org/" target="_blank" rel="external">CRAN</a><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-download.png" alt="R Download Page" title="R Download Page">  </li>
+<li>RStudio<br>RStudio is an amazing IDE for R. I strongly recommend you to run R program on RStudio.<br>RStudio can be download from <a href="http://www.rstudio.com/" target="_blank" rel="external">RStuio Website</a><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/rstudio-download.png" alt="RStudio Download Page" title="RStudio Download Page"></li>
+</ul>
+<h2 id="Packages-of-R"><a href="#Packages-of-R" class="headerlink" title="Packages of R"></a>Packages of R</h2><p>One feature of R is that most functions can be achieved by the installation of different packages. There are 6523 packages on the websit of CRAN and the number is still growing.  </p>
+<ul>
+<li>Install packages<br>1.Install packages manually<br>Download package from <a href="http://www.cran.r-project.org" target="_blank" rel="external">This Page</a>, RStudio-&gt;Tools-&gt;Install Packages<br>2.Install packages by using command <code>install.package()</code><br>(1) Use command <code>install.packages()</code>, then choose the package you need.<br>(2) Use command <code>install.packages(&quot;lmtest&quot;)</code>, R will install the “lmtest” package and those supporting packages automatically.  </li>
+</ul>
+<ol>
+<li>Load packages by using command <code>library()</code><br>Use <code>library(lmtest)</code> to load the “lmtest” package before you want to use this package.<br><strong>Note:</strong> You only need to install packages once, but you need to reload those needed packages every time after you restart RStudio.</li>
+<li>Update packages<br>Use command <code>update.packages()</code> to update those packages you have installed.</li>
+</ol>
+<h2 id="Other-notes-on-using-R"><a href="#Other-notes-on-using-R" class="headerlink" title="Other notes on using R"></a>Other notes on using R</h2><ul>
+<li>R is a case sensitive language.</li>
+<li><code>=</code> and <code>&lt;-</code> can both be used as assignment symbol.<br>Personally, I do not think there is a big difference between them and I highly recommend using <code>=</code> instead of <code>&lt;-</code>. For more information on the subtle difference between these two symbol, please see <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and" target="_blank" rel="external">stackoverflow</a> and <a href="http://www.zhihu.com/question/20698554" target="_blank" rel="external">知乎</a>.</li>
+<li>We use <code>#</code> in R to indicate the following part is comment and should not be compiled.</li>
+<li>R cannot read <code>setwd(&quot;c:\myprogram&quot;)</code>, you should use ‘setwd(“c:/myprogram”)’ or <code>setwd(&quot;c:\\myprogram&quot;)</code>.</li>
+<li>Please wisely use <code>help()</code> or <code>?the_name_of_funciton</code> to read help documentation. The website <a href="http://rseek.org/" target="_blank" rel="external">Rseeker</a> and <a href="https://google.com/" target="_blank" rel="external">Google</a> are also really helpful.</li>
+</ul>
+<h2 id="Create-dataset"><a href="#Create-dataset" class="headerlink" title="Create dataset"></a>Create dataset</h2><p>A dataset is usually a rectangular array of data with rows representing observations<br>and columns representing variables. The following table provides an example of a hypothetical<br>patient dataset.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-1.JPG" alt="A Patient Dataset" title="A Patient Dataset">  </p>
+<ul>
+<li><p>How to construct a dataset?<br>1.Import or type data into the data structures.<br>2.Choose a type of data structures to store data.</p>
+</li>
+<li><p>Data input<br>From the following figure, we can see that R can cope with different data formats.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-2.jpg" alt="Different Data Types" title="Different Data Types"><br><code>read.table()</code> #This can be used to read txt file, the argument <code>na.strings=&quot;.&quot;</code> should be used to convert the missing value (“.” in txt file) to NA value.<br><code>read.csv()</code> #This can be used to read CSV file, highly recommended.<br><code>load()</code> #This can be used to load Rdata file.<br><strong>Note:</strong> You can find out more information on how to input other different types of data  in the book <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external"><em>R in Action</em></a> (<a href="http://book.douban.com/subject/20382244/" target="_blank" rel="external"><em>R语言实战</em></a>).  </p>
+</li>
+<li><p>Data structures<br>R has a wide variety of objects for holding data, including scalars, vectors, matrices,<br>arrays, data frames, and lists. They differ in terms of the type of data they can hold,<br>how they are created, their structural complexity, and the notation used to identify and<br>access individual elements. The figure shows a diagram of these data structures.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-3.jpg" alt="Different Data Structures" title="Different Data Structures">  </p>
+</li>
+</ul>
+<p>1.Vectors<br>Vectors are one-dimensional arrays that can hold numeric data, character data, or logical<br>data. The combine function <code>c()</code> is used to form the vector.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">a=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)                <span class="comment">#This is a numeric vector.  </span></div><div class="line">b=c(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>)    <span class="comment">#This is a character vector.</span></div><div class="line">c=c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">TRUE</span>)        <span class="comment">#This is a logical vector.</span></div><div class="line">```  </div><div class="line">2.Matrices  </div><div class="line">A matrix is a two-dimensional array where each element has the same mode (numeric,</div><div class="line">character, or logical). Matrices are created with the `matrix` function.</div><div class="line">```R</div><div class="line">x=matrix(<span class="number">1</span>:<span class="number">20</span>, nrow=<span class="number">5</span>, ncol=<span class="number">4</span>)  <span class="comment">#This can create a 5*4 matrix using the number 1~20.</span></div></pre></td></tr></table></figure></p>
+<p>The comment operation symbols in matrix:<br>Dimensions of matrix x: <code>dim(x)</code><br>Rows of matrix x: <code>nrow(x)</code><br>Columns of matrix x: <code>col(x)</code><br>Transpose of matrix x: <code>t(x)</code><br>The value of the determinant of matrix x: <code>det(x)</code><br>If the determinant is not 0, then we can get the inverse of matrix x: <code>solve(x)</code><br>Eigenvalue and eigenvector: <code>y=eigen(x)</code>, then <code>y$val</code> is eigenvalue, <code>y$vec</code> is eigenvector.<br>Multiplication of matrices: <code>a %*% b</code><br>Arithmetic operations and power operation on every element of matrix: <code>+ - * / ^</code>  </p>
+<p><strong>3.Data frames</strong><br>Personally, I think data frame is the most important and common data structure you will deal with in R. A data frame is more general than a matrix in that different columns can contain different modes of data (numeric, character, etc.).<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">patientID= c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</div><div class="line">age = c(<span class="number">25</span>, <span class="number">34</span>, <span class="number">28</span>, <span class="number">52</span>)</div><div class="line">diabetes = c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</div><div class="line">status = c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</div><div class="line">patientdata= data.frame(patientID, age, diabetes, status)</div><div class="line">patientdata   <span class="comment">#patientdata is a data frame.</span></div></pre></td></tr></table></figure></p>
+<p>The different ways to read data from data frame:<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">patientdata[<span class="number">1</span>:<span class="number">2</span>]</div><div class="line">patientdata[c(<span class="string">"diabetes"</span>, <span class="string">"status"</span>)]</div><div class="line">patientdata$age</div></pre></td></tr></table></figure></p>
+<h2 id="Useful-mathematical-functions-and-statistical-functions"><a href="#Useful-mathematical-functions-and-statistical-functions" class="headerlink" title="Useful mathematical functions and statistical functions"></a>Useful mathematical functions and statistical functions</h2><p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-4.JPG" alt="Mathematical Functions" title="Mathematical Functions"><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-5.JPG" alt="Statistical Functions" title="Statistical Functions"></p>
+<h2 id="Useful-data-operation-functions"><a href="#Useful-data-operation-functions" class="headerlink" title="Useful data operation functions"></a>Useful data operation functions</h2><p>1.summary<br>summary is a generic function used to produce result summaries of the results of various model fitting functions.<br><code>summary(data$example)</code> or <code>summary(data)</code>   </p>
+<p>2.sum<br>sum returns the sum of all the values present in its arguments.<br><code>sum(data$example, na.rm=TRUE)</code></p>
+<p>3.nrow and ncol<br><code>nrow</code> and <code>ncol</code> return the number of rows or columns present in x.</p>
+<p>4.cbind and rbind<br>Take a sequence of vector, matrix or data-frame arguments and combine by columns or rows, respectively.</p>
+<p>5.replace<br><code>replace</code> replaces the values in x with indices given in list by those given in values.<br><code>data$V1=replace(data$V1,data$V1&lt;5,0)</code><br>In this example, if the data in column V1 is less than 5, then those data will be converted to 0. This function is really useful when you want to convert your numerical variable to dummy variable.</p>
+<p>6.subset<br>Return subsets of vectors, matrices or data frames which meet conditions.<br><code>subset(data, subset, select)</code></p>
+<p>7.aggregate<br>Splits the data into subsets, computes summary statistics for each, and returns the result in a convenient form.<br><code>aggregate(data, by=list(data$variable), mean)</code><br>In this example, based on the column variable, R splits the data into subsets and computes mean of those subsets.</p>
+<h2 id="Reference-books"><a href="#Reference-books" class="headerlink" title="Reference books"></a>Reference books</h2><ul>
+<li><a href="https://www.researchgate.net/publication/239744618_A_Brief_Guide_to_R_for_Beginners_in_Econometrics" target="_blank" rel="external">A Brief Guide to R for Beginners in Econometrics</a>  </li>
+<li><a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a> (<a href="http://book.douban.com/subject/20382244/" target="_blank" rel="external">R语言实战</a>)  </li>
+<li><a href="http://www.goodreads.com/book/show/3715510-applied-econometrics-with-r" target="_blank" rel="external">Applied Econometrics with R</a></li>
+</ul>
+<h2 id="Reference-websites"><a href="#Reference-websites" class="headerlink" title="Reference websites"></a>Reference websites</h2><ul>
+<li><a href="http://www.rseek.org" target="_blank" rel="external">Rseek</a></li>
+<li><a href="https://www.google.com" target="_blank" rel="external">Google</a></li>
+</ul>
+<h2 id="Reference-online-courses"><a href="#Reference-online-courses" class="headerlink" title="Reference online courses"></a>Reference online courses</h2><ul>
+<li><a href="https://www.coursera.org/course/rprog" target="_blank" rel="external">Johns Hopkins – R Programming</a></li>
+<li><a href="https://www.edx.org/course/analytics-edge-mitx-15-071x-0" target="_blank" rel="external">MIT – The Analytics Edge</a></li>
+</ul>
+
+        
+      </div>
+      <footer>
+        
+          
+          
+  
+  <div class="tags">
+    <a href="/tags/R/">R</a>
+  </div>
+
+          <div class="share">
+  
+</div>
+          
+<nav class="article-nav clearfix">
+ 
+ <div class="article-prev" >
+ <a href="/2015/12/12/r-intro-2/" title="R Introduction Part 2">
+  <i class="fa fa-long-arrow-left"></i>
+  <span>
+  R Introduction Part 2</span>
+</a>
+</div>
+
+
+<div class="article-next">
+<a href="/2015/12/10/python-homework-5/"  title="Python Homework Series 5">
+ <span>Python Homework Series 5
+</span>
+<i class="fa fa-long-arrow-right"></i>
+</a>
+</div>
+
+</nav>
+
+        
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+</article>
+
+
+<section id="comment">
+  <h2 class="title">Comments</h2>
+
+  
+
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright"><div class="padding">
+	
+	  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+	
+	  
+<div class="widget recent-post">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/05/28/threshold/">Introduction to Panel Threshold Model</a>
+      </li>
+    
+      <li>
+        <a href="/2016/03/18/quiz/">Python Quiz</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/13/r-intro-3/">R Introduction Part 3</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/12/r-intro-2/">R Introduction Part 2</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/11/r-intro-1/">R Introduction Part 1</a>
+      </li>
+    
+  </ul>
+</div>
+
+	
+	  
+	
+	  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  
+    <a href="/tags/Python/">Python<small>5</small></a>
+  
+    <a href="/tags/R/">R<small>3</small></a>
+  
+    <a href="/tags/Threshold-Model/">Threshold Model<small>1</small></a>
+  
+    <a href="/tags/李录谈现代化/">李录谈现代化<small>1</small></a>
+  
+</div>
+
+	
+</div></aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="padding">
+	<div class="alignleft">
+	  
+	  &copy; 2016 Zichao Yang
+	  
+	  Powerd by <a href="http://hexo.io/" target="_blank">hexo</a>
+	  and Theme by <a href="https://github.com/halfer53/metro-light" target="_blank">metro-light</a>
+	</div>
+
+	<div class="alignright">
+		
+		
+			<a href="https://github.com/Anonymous-Y" target="_blank" title="Zichao Yang Github"><i class="fa fa-github-square"></i></a>	
+		
+		
+		
+			<a href="http://www.weibo.com/2696788542" target="_blank" title="Zichao Yang Weibo"><i class="fa fa-weibo"></i></a>	
+		
+		
+		
+		
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+
+<div class="scroll-top"><i class="fa fa-arrow-circle-up"></i></div></footer>
+  
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc';
+
+		        (function() {
+		            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		        })();
+		</script>
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc'; 
+
+		(function () {
+		var s = document.createElement('script'); s.async = true;
+		s.type = 'text/javascript';
+		s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+		</script>
+
+  
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+$(window).scroll(function() {
+
+    if($(this).scrollTop() > 400) {
+        $('.scroll-top').fadeIn(200);
+    } else {
+        $('.scroll-top').fadeOut(200);
+    }
+});
+
+$('.scroll-top').bind('click', function(e) {
+    e.preventDefault();
+    $('body,html').animate({scrollTop:0},200);
+});
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

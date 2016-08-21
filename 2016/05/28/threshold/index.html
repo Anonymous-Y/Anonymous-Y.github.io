@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+  
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Introduction to Panel Threshold Model | Zichao Yang&#39;s Blog</title>
+  <meta name="author" content="Zichao Yang">
+  
+  <meta name="description" content="These are my slides written for the graduate course of Intermediate Econometrics. The whole project is based on Threshold effects in non-dynamic panel">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Introduction to Panel Threshold Model"/>
+  <meta property="og:site_name" content="Zichao Yang&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <meta http-equiv="Content-Language" content="en"/>
+  
+
+  <link href="/img/32.png" rel="icon">
+  
+    <link rel="apple-touch-icon" href="/img/16.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/16.png">
+    
+
+  <link rel="alternate" href="/atom.xml" title="Zichao Yang&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+  <style type="text/css">
+  /* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) */
+body{ -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+
+  
+
+  
+    article .post-content-index .entry{max-height: 550px; overflow:hidden;}
+  
+</style>
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'null', 'auto');
+  ga('send', 'pageview');
+ 
+</script>
+
+
+
+
+  
+    
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball' rel='stylesheet' type='text/css'>
+    
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+
+
+
+</head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="padding">
+	<div class="alignleft logo">
+	  <h1><a href="/">Zichao Yang&#39;s Blog</a></h1>
+	</div>
+	<nav id="main-nav" class="alignright">
+		<input type="checkbox" id="toggle" />
+		<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick><i class="fa fa-bars"></i></label>
+	  <ul class="menu">
+	    
+	      <li><a href="/">Home</a></li>
+	    
+	      <li><a href="/archives">Archives</a></li>
+	    
+	      <li><a href="/about">About</a></li>
+	    
+	    
+	  </ul>
+	</nav>
+	<div class="clearfix"></div>
+</div>
+</header>
+  <div id="page-heading-wrap">
+  	<div class="inner">
+      <div class="padding">
+    		
+          <h1>Introduction to Panel Threshold Model</h1>
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2016-05-28T17:18:42.000Z">2016-05-28</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
+
+                
+                  <a href="/">Zichao Yang</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
+              
+                <a href="#disqus_thread">Comments</a>
+
+              
+            </li>
+          </ul>
+        
+      </div>
+  	</div>
+  </div>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper" class="padding"><article class="post">
+  
+  
+    <div class="post-content">
+  
+      
+      <div class="entry">
+        
+          <ul>
+<li>These are my slides written for the graduate course of Intermediate Econometrics. The whole project is based on <a href="http://www.sciencedirect.com/science/article/pii/S0304407699000251" target="_blank" rel="external">Threshold effects in non-dynamic panels: Estimation, testing, and inference (Hansen, 1999)</a>  </li>
+</ul>
+<ul>
+<li><strong>Part One: Slides</strong>  </li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_01.jpg" alt="slide 1">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_02.jpg" alt="slide 2">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_03.jpg" alt="slide 3">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_04.jpg" alt="slide 4">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_05.jpg" alt="slide 5">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_06.jpg" alt="slide 6">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_07.jpg" alt="slide 7">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_08.jpg" alt="slide 8">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_09.jpg" alt="slide 9">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_10.jpg" alt="slide 10">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_11.jpg" alt="slide 11">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_12.jpg" alt="slide 12">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_13.jpg" alt="slide 13">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_14.jpg" alt="slide 14">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_15.jpg" alt="slide 15">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_16.jpg" alt="slide 16">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_17.jpg" alt="slide 17">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_18.jpg" alt="slide 18">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_19.jpg" alt="slide 19">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_20.jpg" alt="slide 20">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_21.jpg" alt="slide 21">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_22.jpg" alt="slide 22">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_23.jpg" alt="slide 23">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_24.jpg" alt="slide 24">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_25.jpg" alt="slide 25">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_26.jpg" alt="slide 26">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_27.jpg" alt="slide 27">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_28.jpg" alt="slide 28">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_29.jpg" alt="slide 29">  </p>
+<p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/threshold/presentation_%E9%A1%B5%E9%9D%A2_30.jpg" alt="slide 30">  </p>
+<ul>
+<li><strong>Part Two: R code for this lecture</strong><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#First of all, we need to generate the data of y,x,n</span></div><div class="line">set.seed(<span class="number">123</span>) <span class="comment"># I set the seed for the sake of repeatability</span></div><div class="line">e=rnorm(<span class="number">100</span>,mean=<span class="number">0</span>,sd=<span class="number">1</span>)</div><div class="line">x=rnorm(<span class="number">100</span>,mean=<span class="number">0</span>,sd=<span class="number">3</span>^<span class="number">2</span>)</div><div class="line">n=<span class="number">1</span>:<span class="number">100</span></div><div class="line">y=rep(<span class="number">0</span>,times=<span class="number">100</span>)</div><div class="line">y[<span class="number">1</span>:<span class="number">50</span>]=<span class="number">1</span>+<span class="number">2</span>*x[<span class="number">1</span>:<span class="number">50</span>]+e[<span class="number">1</span>:<span class="number">50</span>]</div><div class="line">y[<span class="number">51</span>:<span class="number">100</span>]=<span class="number">1</span>-<span class="number">2</span>*x[<span class="number">51</span>:<span class="number">100</span>]+e[<span class="number">51</span>:<span class="number">100</span>]</div><div class="line">data=data.frame(n,x,y,e)</div><div class="line"></div><div class="line"><span class="comment">#Then we can plot out the relationship between y and n, as well as y and x.</span></div><div class="line"><span class="keyword">library</span>(ggplot2)</div><div class="line">p1=ggplot(data,aes(x=n,y=y))+geom_point()</div><div class="line">p2=ggplot(data,aes(x=x,y=y))+geom_point()</div><div class="line">p1</div><div class="line">p2</div><div class="line"></div><div class="line"><span class="comment">#Regression results</span></div><div class="line"><span class="comment">#Suppose we do not aware the existance of thereshold effect</span></div><div class="line">reg1=lm(y~x,data)</div><div class="line">summary(reg1)</div><div class="line"></div><div class="line"><span class="comment">#If we know the thereshold and seprate the whole data frame into two groups,</span></div><div class="line"><span class="comment">#then conduct regressions separately.</span></div><div class="line">data1=subset(data, n&lt;=<span class="number">50</span>)</div><div class="line">data2=subset(data,n&gt;<span class="number">50</span>)</div><div class="line">reg2=lm(y~x,data1)</div><div class="line">reg3=lm(y~x,data2)</div><div class="line">summary(reg2)</div><div class="line">summary(reg3)</div><div class="line"></div><div class="line"><span class="comment">#If we do not know where the thereshold is, then how?</span></div><div class="line">reg=list()</div><div class="line">rss=array()</div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">99</span>)</div><div class="line">&#123;</div><div class="line">  dum=x</div><div class="line">  dum[(i+<span class="number">1</span>):<span class="number">100</span>]=<span class="number">0</span></div><div class="line">  reg[[i]]=lm(y~x+dum)</div><div class="line">  rss[i]=sum(residuals(reg[[i]])^<span class="number">2</span>)</div><div class="line">&#125;</div><div class="line">order(rss)</div><div class="line"></div><div class="line">Rss=data.frame(n=<span class="number">1</span>:<span class="number">99</span>,rss)</div><div class="line">ggplot(Rss,aes(x=n,y=rss))+geom_point()</div><div class="line"></div><div class="line"><span class="comment">######################</span></div><div class="line"><span class="comment">######################</span></div><div class="line"><span class="comment">#Now if we have two theresholds, we can still use</span></div><div class="line"><span class="comment">#nested loop to discern these two theresholds. </span></div><div class="line"><span class="comment">#However Hensen proposed a more elegant solution.</span></div><div class="line"><span class="comment">#Prepare the data</span></div><div class="line"></div><div class="line">set.seed(<span class="number">456</span>) <span class="comment"># I set the seed for the sake of repeatability</span></div><div class="line">e=rnorm(<span class="number">100</span>,mean=<span class="number">0</span>,sd=<span class="number">1</span>)</div><div class="line">x=rnorm(<span class="number">100</span>,mean=<span class="number">0</span>,sd=<span class="number">3</span>^<span class="number">2</span>)</div><div class="line">n=<span class="number">1</span>:<span class="number">100</span></div><div class="line">y=rep(<span class="number">0</span>,times=<span class="number">100</span>)</div><div class="line">y[<span class="number">1</span>:<span class="number">30</span>]=<span class="number">1</span>+<span class="number">2</span>*x[<span class="number">1</span>:<span class="number">30</span>]+e[<span class="number">1</span>:<span class="number">30</span>]</div><div class="line">y[<span class="number">31</span>:<span class="number">60</span>]=<span class="number">1</span>-<span class="number">2</span>*x[<span class="number">31</span>:<span class="number">60</span>]+e[<span class="number">31</span>:<span class="number">60</span>]</div><div class="line">y[<span class="number">61</span>:<span class="number">100</span>]=<span class="number">1</span>+<span class="number">4</span>*x[<span class="number">61</span>:<span class="number">100</span>]+e[<span class="number">61</span>:<span class="number">100</span>]</div><div class="line">data=data.frame(n,x,y,e)</div><div class="line"></div><div class="line"><span class="comment">#Then we can plot out the relationship between y and n, as well as y and x.</span></div><div class="line"><span class="keyword">library</span>(ggplot2)</div><div class="line">p1=ggplot(data,aes(x=n,y=y))+geom_point()</div><div class="line">p2=ggplot(data,aes(x=x,y=y))+geom_point()</div><div class="line">p1</div><div class="line">p2</div><div class="line"></div><div class="line"><span class="comment">#Now we use the method proposed by Hensen to discern theresholds</span></div><div class="line"><span class="comment">#pinpoint the first thereshold</span></div><div class="line">reg=list()</div><div class="line">rss1=array()</div><div class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">99</span>)</div><div class="line">&#123;</div><div class="line">  dum=x</div><div class="line">  dum[(i+<span class="number">1</span>):<span class="number">100</span>]=<span class="number">0</span></div><div class="line">  reg[[i]]=lm(y~x+dum)</div><div class="line">  rss1[i]=sum(residuals(reg[[i]])^<span class="number">2</span>)</div><div class="line">&#125;</div><div class="line">which.min(rss1)</div><div class="line"><span class="comment">#plot the figure</span></div><div class="line">Rss1=data.frame(n=<span class="number">1</span>:<span class="number">99</span>,rss1)</div><div class="line">ggplot(Rss1,aes(x=n,y=rss1))+geom_point()</div><div class="line"></div><div class="line"><span class="comment">#pinpoint the second thereshold</span></div><div class="line">reg2=list()</div><div class="line">rss2=array()</div><div class="line"><span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">99</span>)</div><div class="line">&#123;</div><div class="line">  dum1=x</div><div class="line">  dum2=x</div><div class="line">  left=min(i,which.min(rss1))</div><div class="line">  right=max(i,which.min(rss1))</div><div class="line">  dum1[(left+<span class="number">1</span>):<span class="number">100</span>]=<span class="number">0</span></div><div class="line">  dum2[<span class="number">1</span>:right]=<span class="number">0</span></div><div class="line">  reg2[[i]]=lm(y~x+dum1+dum2)</div><div class="line">  rss2[i]=sum(residuals(reg2[[i]])^<span class="number">2</span>)</div><div class="line">&#125;</div><div class="line">which.min(rss2)</div><div class="line"><span class="comment">#plot the figure</span></div><div class="line">Rss2=data.frame(n=<span class="number">1</span>:<span class="number">99</span>,rss2)</div><div class="line">ggplot(Rss2,aes(x=n,y=rss2))+geom_point()</div><div class="line"></div><div class="line"><span class="comment">#pinpoint the first thereshold again</span></div><div class="line">reg3=list()</div><div class="line">rss3=array()</div><div class="line"><span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">99</span>)</div><div class="line">&#123;</div><div class="line">  dum1=x</div><div class="line">  dum2=x</div><div class="line">  left=min(i,which.min(rss2))</div><div class="line">  right=max(i,which.min(rss2))</div><div class="line">  dum1[(left+<span class="number">1</span>):<span class="number">100</span>]=<span class="number">0</span></div><div class="line">  dum2[<span class="number">1</span>:right]=<span class="number">0</span></div><div class="line">  reg3[[i]]=lm(y~x+dum1+dum2)</div><div class="line">  rss3[i]=sum(residuals(reg3[[i]])^<span class="number">2</span>)</div><div class="line">&#125;</div><div class="line">which.min(rss3)</div><div class="line"><span class="comment">#plot the figure</span></div><div class="line">Rss3=data.frame(n=<span class="number">1</span>:<span class="number">99</span>,rss3)</div><div class="line">ggplot(Rss3,aes(x=n,y=rss3))+geom_point()</div><div class="line"></div><div class="line"><span class="comment"># put those aboving figures into one picture.</span></div><div class="line">all=rbind(data.frame(n=<span class="number">1</span>:<span class="number">99</span>,rss=rss1,t=<span class="string">"loop 1"</span>),data.frame(n=<span class="number">1</span>:<span class="number">99</span>,rss=rss2,t=<span class="string">"loop 2"</span>),data.frame(n=<span class="number">1</span>:<span class="number">99</span>,rss=rss3,t=<span class="string">"loop 3"</span>))</div><div class="line">p=ggplot(all, aes(x=n,y=rss))</div><div class="line">p+geom_path(aes(position=t,color=t))+geom_point(aes(position=t,color=t))</div><div class="line"></div><div class="line"><span class="comment">#bootstrap, in this case, we only consider one threshold.</span></div><div class="line">set.seed(<span class="number">123</span>) <span class="comment"># I set the seed for the sake of repeatability</span></div><div class="line">e=rnorm(<span class="number">100</span>,mean=<span class="number">0</span>,sd=<span class="number">1</span>)</div><div class="line">x=rnorm(<span class="number">100</span>,mean=<span class="number">0</span>,sd=<span class="number">3</span>^<span class="number">2</span>)</div><div class="line">n=<span class="number">1</span>:<span class="number">100</span></div><div class="line">y=rep(<span class="number">0</span>,times=<span class="number">100</span>)</div><div class="line">y[<span class="number">1</span>:<span class="number">50</span>]=<span class="number">1</span>+<span class="number">2</span>*x[<span class="number">1</span>:<span class="number">50</span>]+e[<span class="number">1</span>:<span class="number">50</span>]</div><div class="line">y[<span class="number">51</span>:<span class="number">100</span>]=<span class="number">1</span>-<span class="number">2</span>*x[<span class="number">51</span>:<span class="number">100</span>]+e[<span class="number">51</span>:<span class="number">100</span>]</div><div class="line">data=data.frame(n,x,y,e)</div><div class="line"></div><div class="line">breg1=lm(y~x,data)</div><div class="line">s0=sum(residuals(breg1)^<span class="number">2</span>)</div><div class="line"><span class="keyword">library</span>(boot)</div><div class="line">fvalue=<span class="keyword">function</span>(data,indices)&#123;</div><div class="line">  d=data[indices,]</div><div class="line">  bregloop=list()</div><div class="line">  brss=array()</div><div class="line">  <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">99</span>)</div><div class="line">  &#123;</div><div class="line">    dum=d$x</div><div class="line">    dum[(i+<span class="number">1</span>):<span class="number">100</span>]=<span class="number">0</span></div><div class="line">    bregloop[[i]]=lm(y~x+dum,data=d)</div><div class="line">    brss[i]=sum(residuals(bregloop[[i]])^<span class="number">2</span>)</div><div class="line">  &#125;</div><div class="line">  a=which.min(brss)</div><div class="line">  dum=d$x</div><div class="line">  dum[(a+<span class="number">1</span>):<span class="number">100</span>]=<span class="number">0</span></div><div class="line">  breg2=lm(y~x+dum,data=d)</div><div class="line">  s1=sum(residuals(breg2)^<span class="number">2</span>)</div><div class="line">  f=(s0/s1-<span class="number">1</span>)*(<span class="number">100</span>-<span class="number">1</span>)</div><div class="line">  <span class="keyword">return</span>(f)</div><div class="line">&#125;</div><div class="line"></div><div class="line">result=boot(data=data,fvalue,R=<span class="number">99</span>)</div><div class="line">f=result$t</div><div class="line"></div><div class="line">result=boot(data=data,fvalue,R=<span class="number">99</span>,formula1=y~x+dum)</div><div class="line">f=result$t</div><div class="line"></div><div class="line"><span class="comment">#the real f0</span></div><div class="line">dum=data$x</div><div class="line">dum[<span class="number">51</span>:<span class="number">100</span>]=<span class="number">0</span></div><div class="line">reg4=lm(y~x+dum,data)</div><div class="line">rss4=sum(residuals(reg4)^<span class="number">2</span>)</div><div class="line">f0=(s0/rss4-<span class="number">1</span>)*(<span class="number">100</span>-<span class="number">1</span>)</div><div class="line"></div><div class="line">table(f&gt;f0) <span class="comment"># so the p-value=0, we should reject H0</span></div><div class="line"></div><div class="line"><span class="comment">##last question, get the confidence intervals for gamma</span></div><div class="line">LR=(rss-rss4)/(rss4/(<span class="number">100</span>-<span class="number">1</span>))</div><div class="line">order(LR)</div><div class="line">c=-<span class="number">2</span>*log(<span class="number">1</span>-sqrt(<span class="number">1</span>-<span class="number">0.01</span>)) <span class="comment">#we set the asymptotic level alpha at 1%</span></div><div class="line">LR[LR&lt;c]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+        
+      </div>
+      <footer>
+        
+          
+          
+  
+  <div class="tags">
+    <a href="/tags/Threshold-Model/">Threshold Model</a>
+  </div>
+
+          <div class="share">
+  
+</div>
+          
+<nav class="article-nav clearfix">
+ 
+
+<div class="article-next">
+<a href="/2016/03/18/quiz/"  title="Python Quiz">
+ <span>Python Quiz
+</span>
+<i class="fa fa-long-arrow-right"></i>
+</a>
+</div>
+
+</nav>
+
+        
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+</article>
+
+
+<section id="comment">
+  <h2 class="title">Comments</h2>
+
+  
+
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright"><div class="padding">
+	
+	  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+	
+	  
+<div class="widget recent-post">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/05/28/threshold/">Introduction to Panel Threshold Model</a>
+      </li>
+    
+      <li>
+        <a href="/2016/03/18/quiz/">Python Quiz</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/13/r-intro-3/">R Introduction Part 3</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/12/r-intro-2/">R Introduction Part 2</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/11/r-intro-1/">R Introduction Part 1</a>
+      </li>
+    
+  </ul>
+</div>
+
+	
+	  
+	
+	  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  
+    <a href="/tags/Python/">Python<small>5</small></a>
+  
+    <a href="/tags/R/">R<small>3</small></a>
+  
+    <a href="/tags/Threshold-Model/">Threshold Model<small>1</small></a>
+  
+    <a href="/tags/李录谈现代化/">李录谈现代化<small>1</small></a>
+  
+</div>
+
+	
+</div></aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="padding">
+	<div class="alignleft">
+	  
+	  &copy; 2016 Zichao Yang
+	  
+	  Powerd by <a href="http://hexo.io/" target="_blank">hexo</a>
+	  and Theme by <a href="https://github.com/halfer53/metro-light" target="_blank">metro-light</a>
+	</div>
+
+	<div class="alignright">
+		
+		
+			<a href="https://github.com/Anonymous-Y" target="_blank" title="Zichao Yang Github"><i class="fa fa-github-square"></i></a>	
+		
+		
+		
+			<a href="http://www.weibo.com/2696788542" target="_blank" title="Zichao Yang Weibo"><i class="fa fa-weibo"></i></a>	
+		
+		
+		
+		
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+
+<div class="scroll-top"><i class="fa fa-arrow-circle-up"></i></div></footer>
+  
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc';
+
+		        (function() {
+		            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		        })();
+		</script>
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc'; 
+
+		(function () {
+		var s = document.createElement('script'); s.async = true;
+		s.type = 'text/javascript';
+		s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+		</script>
+
+  
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+$(window).scroll(function() {
+
+    if($(this).scrollTop() > 400) {
+        $('.scroll-top').fadeIn(200);
+    } else {
+        $('.scroll-top').fadeOut(200);
+    }
+});
+
+$('.scroll-top').bind('click', function(e) {
+    e.preventDefault();
+    $('body,html').animate({scrollTop:0},200);
+});
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

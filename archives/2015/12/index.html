@@ -1,0 +1,672 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+  
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>Archives: 2015/12 | Zichao Yang&#39;s Blog</title>
+  <meta name="author" content="Zichao Yang">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Zichao Yang&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <meta http-equiv="Content-Language" content="en"/>
+  
+
+  <link href="/img/32.png" rel="icon">
+  
+    <link rel="apple-touch-icon" href="/img/16.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/16.png">
+    
+
+  <link rel="alternate" href="/atom.xml" title="Zichao Yang&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+  <style type="text/css">
+  /* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) */
+body{ -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+
+  
+
+  
+    article .post-content-index .entry{max-height: 550px; overflow:hidden;}
+  
+</style>
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'null', 'auto');
+  ga('send', 'pageview');
+ 
+</script>
+
+
+
+
+  
+    
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball' rel='stylesheet' type='text/css'>
+    
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+
+
+
+</head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="padding">
+	<div class="alignleft logo">
+	  <h1><a href="/">Zichao Yang&#39;s Blog</a></h1>
+	</div>
+	<nav id="main-nav" class="alignright">
+		<input type="checkbox" id="toggle" />
+		<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick><i class="fa fa-bars"></i></label>
+	  <ul class="menu">
+	    
+	      <li><a href="/">Home</a></li>
+	    
+	      <li><a href="/archives">Archives</a></li>
+	    
+	      <li><a href="/about">About</a></li>
+	    
+	    
+	  </ul>
+	</nav>
+	<div class="clearfix"></div>
+</div>
+</header>
+  <div id="page-heading-wrap">
+  	<div class="inner">
+      <div class="padding">
+    		
+          <h2>A blog for learning</h2>
+        
+      </div>
+  	</div>
+  </div>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper" class="padding">
+<h2 class="archive-title">2015/12</h2>
+
+
+  
+    <article class="post">
+  
+  
+    <div class="post-content-index">
+  
+      
+        <header>
+          <div class="icon"></div>
+            
+    
+      <h1 class="title transition"><a href="/2015/12/13/r-intro-3/">R Introduction Part 3</a></h1>
+    
+  
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2015-12-13T18:02:17.000Z">2015-12-13</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
+
+                
+                  <a href="/">Zichao Yang</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
+              
+                <a href="/2015/12/13/r-intro-3/#disqus_thread">Comments</a>
+
+              
+          </ul>
+        </header>
+      
+      <div class="entry">
+        
+          
+            <ul>
+<li>This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.</li>
+<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a>.</li>
+<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="external">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="external">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
+</ul>
+<h2 id="Nonlinear-Regression"><a href="#Nonlinear-Regression" class="headerlink" title="Nonlinear Regression"></a>Nonlinear Regression</h2><h3 id="What-is-Nonlinear-Regression"><a href="#What-is-Nonlinear-Regression" class="headerlink" title="What is Nonlinear Regression?"></a>What is Nonlinear Regression?</h3><p>In statistics, nonlinear regression is a form of regression analysis in which observational data are modeled by a function which is a nonlinear combination of the model parameters and depends on one or more independent variables.<br>1.Linear Regression<br>$$Y_i=\beta_1+\beta_2X_i+\mu_i$$<br>2.Nonlinear Regression<br>$$Y_i=\beta_1e^{\beta_2X_i}+\mu_i$$</p>
+<h3 id="How-to-cope-with-Nonlinear-Regression"><a href="#How-to-cope-with-Nonlinear-Regression" class="headerlink" title="How to cope with Nonlinear Regression?"></a>How to cope with Nonlinear Regression?</h3><p><strong>1.Delta Method</strong>  </p>
+<ul>
+<li>Single parameter situation<br>If we know the standard error of parameter $\hat{\theta}$, however, what we are really interested is the standard error of parameter $\gamma=g(\theta)$, how to estimate its standard error?<br>1.If $g(\theta)$ is a linear function, you know how to get it.<br>2.If $g(\theta)$ is not a linear function, then:<br>We assume the standard error of $\hat{\theta}$ is $S_{\theta}$, and the standard error of $\hat{\gamma}$ is $S_{\gamma}$, the relationship between them is<br>$$S_{\gamma}\equiv|g^\prime(\hat{\theta})|S_{\theta}$$</li>
+<li>Multi-parameters situation<br>If $\theta$ and $\gamma$ are both vectors, then how? We assume the first one is a $k$-dimension vector and the latter is a $l$-dimension vector, $l\leqq k$. $\gamma$ is a function of $\theta$: $\gamma=g(\theta)$, where $g(\theta)$ is a monotonic and continuous $l$-dimension vector function. Then we can get the covariance matrix of $\hat{\gamma}$ using the following equation:<br>$$\widehat{Var}(\hat{\gamma})\equiv\hat{G}\widehat{Var}(\hat{\theta})\hat{G}^T \qquad (1)$$<br>where $\widehat{Var}(\hat{\theta})$ is the estimation of covariance matrix, $\hat{G}$ is Jacoby matrix.<br>Then, how to get $\widehat{Var}(\hat{\theta})$ ?<br>Regardless of the form of the error covariance matrix $\Omega$, the covariance matrix of $\hat{\theta}$ equals to:<br>$$\widehat{Var}(\hat{\theta})=E((\hat{\theta}-\theta_0)(\hat{\theta}-\theta_0)^T)=(X^TX)^{-1}X^T{\Omega}X(X^TX)^{-1} \qquad (2)$$<br>where $X$ is the matrix of independent variables, $\Omega$ is error covariance matrix.  </li>
+</ul>
+<p><strong>Example</strong><br>Suppose we have the following regression:<br>$$Y_i=\theta_0+\frac{\alpha}{1-\alpha}X_1+\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2}X_2$$<br>So, in this case we can get $\theta=\begin{pmatrix} \alpha \\ \sigma \end{pmatrix}$ &emsp;&emsp; $\gamma=\begin{pmatrix} \frac{\alpha}{1-\alpha} \\ \frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2} \end{pmatrix}$<br>$$\gamma=g(\theta) \Rightarrow \begin{cases}\gamma_1=g_1(\alpha,\sigma)\\ \gamma_2=g_2(\alpha,\sigma) \end{cases}$$<br>Construction of Jacoby matrix<br>$$\hat{G} = \begin{bmatrix}<br>\frac{\partial\gamma_1}{\partial\theta_1} &amp; \frac{\partial\gamma_1}{\partial\theta_2} \\<br>\frac{\partial\gamma_2}{\partial\theta_1} &amp; \frac{\partial\gamma_2}{\partial\theta_2}<br>\end{bmatrix}$$<br>So,<br>$$ \hat{G} = \begin{bmatrix}<br>\frac{\partial(\frac{\alpha}{1-\alpha})}{\partial\alpha} &amp; \frac{\partial(\frac{\alpha}{1-\alpha})}{\partial\sigma} \\<br>\frac{\partial(\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2})}{\partial\alpha} &amp; \frac{\partial(\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2})}{\partial\sigma}<br>\end{bmatrix}$$<br>By conducting OLS regression, we can get $\hat{\gamma_1}$, $\hat{\gamma_2}$ and the error covariance matrix $\Omega$.<br>Following equation (2), we can get:<br>$$\widehat{Var}(\hat{\gamma})=(X^TX)^{-1}X^T{\Omega}X(X^TX)^{-1}$$<br>Then, according to equation (1), we can get:<br>$$\widehat{Var}(\hat{\theta})\equiv(\hat{G})^{-1}\widehat{Var}(\hat{\gamma})(\hat{G}^T)^{-1}$$</p>
+<p><strong>2. nls(.) function</strong>  </p>
+<ul>
+<li><p><code>nls</code> is a build-in function in R, which is used to determine the nonlinear (weighted) least-squares estimates of the parameters of a nonlinear model.  </p>
+</li>
+<li><p>Usage of <code>nls</code>:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nls(formula, data, start, control, algorithm, trace, subset, weights, na.action, model, lower, upper, <span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>Note:</strong> You can find out more explanation on parameter settings by browsing R help documentation. </p>
+<p> <strong>Example</strong><br>Suppose we still have the following regression:<br>$$Y_i=\theta_0+\frac{\alpha}{1-\alpha}X_1+\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2}X_2$$<br>We can use <code>nls</code> to get the estimation of parameters $\alpha$, $\sigma$ directly.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#In this method, we need to tell R the approximate initial value of alpha and sigma in the first place.</span></div><div class="line">lm=nls(y~constant+alpha/(<span class="number">1</span>-alpha)*x1+<span class="number">1</span>/<span class="number">2</span>*(sigma-<span class="number">1</span>)/sigma*alpha/(<span class="number">1</span>-alpha)^<span class="number">2</span>*x2,start=list(constant=<span class="number">5</span>,alpha=<span class="number">0.3</span>,sigma=<span class="number">1.5</span>),trace=<span class="literal">F</span>)</div><div class="line">summary(lm)</div></pre></td></tr></table></figure></p>
+<h2 id="Notice-on-paper-replication"><a href="#Notice-on-paper-replication" class="headerlink" title="Notice on paper replication"></a>Notice on paper replication</h2><ul>
+<li>You need to replicate the paper <a href="http://onlinelibrary.wiley.com/doi/10.1002/jae.722/pdf" target="_blank" rel="external">The Solow Model with CES Technology: Nonlinearities and Parameter Heterogeneity</a> as the final assignment in this course. Related data can be download from <a href="http://qed.econ.queensu.ca/jae/datasets/masanjala001/" target="_blank" rel="external">here</a>.</li>
+<li>You only need to replicate the Table 1, Table 2 and Table 4.</li>
+<li>You need to use Delta method to estimate the standard errors of parameters of <em>Restricted Basic Solow-CD Model</em>, <em>Restricted Extended Solow-CD Model</em> and <em>Restricted Basic Solow-CES Model</em> in Table 1 and Table 2.</li>
+<li>You need to use dur_john.Rdata for Table 1. And you need to delete those following rows of data to get the right answer: 13, 14, 6, 19, 36, 44, 45, 50, 51, 56, 59, 62, 66, 68, 69, 72, 78, 81, 82, 91, 111, 114, 118.</li>
+<li>You need to use datamp2.Rdata to replicate Table 2.</li>
+<li>You need to use datamp1.Rdata to replicate Table 4.</li>
+<li>Data description in the original file are not totally correct. Please see the following data description, which I have amended.</li>
+</ul>
+<h3 id="Data-description"><a href="#Data-description" class="headerlink" title="Data description"></a>Data description</h3><p>Winford H. Masanjala and Chris Papageorgiou, “The Solow Model with CES<br>Technology: Nonlinearities and Parameter Heterogeneity”, Journal of Applied<br>Econometrics, Vol. 19, No. 2, 2004, pp. 171-201.<br>&nbsp;</p>
+<h4 id="Documentation-for-data-in-dur-john-Rdata"><a href="#Documentation-for-data-in-dur-john-Rdata" class="headerlink" title="Documentation for data in dur_john.Rdata"></a>Documentation for data in dur_john.Rdata</h4><p>CODE=Country number in Summers-Heston dataset.<br>NONOIL=1 for nonoil producing countries.<br>INTER=1 for countries with better quality data.<br>OECD=1 for OECD countries.<br>GDP60=Per capita GDP in 1960.<br>GDP85=Per capita GDP in 1985.<br>GDPGRO=Average growth rate of per capita GDP (1960-1985).<br>POPGRO=Average growth rate of working-age population (1960-1985).<br>IONY=Average ratio of investment (including Government Investment) to GDP(1960-1985).<br>SCHOOL=Average fraction of working-age population enrolled in secondary school (1960-1985).<br>LIT60=fraction of the population over 15 years old that is able to read and write in 1960.<br>NA indicates that the observation is missing. This dataset has also being used in Durlauf and Johnson (JAE 1995).<br>&nbsp;<br>There are 121 observations for each variable.  All of the data with the exception of LIT60 are from Mankiw, Romer and Weil (QJE 1992), who in turn constructed the data from Penn World Tables 4.0.  LIT60 is from the World Bank’s World Development Report.<br>&nbsp;</p>
+<h4 id="Documentation-for-data-in-datamp1-txt"><a href="#Documentation-for-data-in-datamp1-txt" class="headerlink" title="Documentation for data in datamp1.txt"></a>Documentation for data in datamp1.txt</h4><p>CODE=Country number in Summers-Heston dataset.<br>GDP60=Per capita GDP in 1960.<br>GDP85=Per capita GDP in 1985.<br>POPGRO=Average growth rate of working-age population (1960-1985).<br>IONY=Average ratio of investment to GDP (1960-1985).<br>SCHOOL=Average fraction of working-age population enrolled in secondary school (1960-1985).<br>LIT60=fraction of the population over 15 years old that is able to read and write in 1960.<br>&nbsp;<br>There are 96 observations for each variable.  All of the data with the exception of LIT60 are from Mankiw, Romer and Weil (QJE 1992) who in turn constructed the data from Penn World Tables 4.0.  LIT60 is from the World Bank’s World Development Report.<br>&nbsp;</p>
+<h4 id="Documentation-for-data-in-datamp2-txt"><a href="#Documentation-for-data-in-datamp2-txt" class="headerlink" title="Documentation for data in datamp2.txt"></a>Documentation for data in datamp2.txt</h4><p>CODE=Country number in Summers-Heston dataset.<br>GDP60=Per capita GDP in 1960.<br>GDP85=Per capita GDP in 1985.<br>IONY=Average ratio of investment to GDP (1960-1995).<br>SCHOOL=Average fraction of working-age population enrolled in secondary school (1960-1995).<br>POPGRO=Average growth rate of working-age population (1960-1995).<br>&nbsp;<br>There are 90 observations for each variable.  All of the data are from Bernanke and Gurkaynak (NBER Macroeconomics Annual 2001) who constructed the data from Penn World Tables 6.0. </p>
+
+          
+        
+      </div>
+      <footer>
+        
+          <div class="alignright">
+            <a href="/2015/12/13/r-intro-3/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
+          </div>
+        
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  
+    <div class="post-content-index">
+  
+      
+        <header>
+          <div class="icon"></div>
+            
+    
+      <h1 class="title transition"><a href="/2015/12/12/r-intro-2/">R Introduction Part 2</a></h1>
+    
+  
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2015-12-12T19:45:21.000Z">2015-12-12</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
+
+                
+                  <a href="/">Zichao Yang</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
+              
+                <a href="/2015/12/12/r-intro-2/#disqus_thread">Comments</a>
+
+              
+          </ul>
+        </header>
+      
+      <div class="entry">
+        
+          
+            <ul>
+<li>This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.</li>
+<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a>.</li>
+<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="external">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="external">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
+</ul>
+<h1 id="Regression-wiht-R"><a href="#Regression-wiht-R" class="headerlink" title="Regression wiht R"></a>Regression wiht R</h1><p>As you can see in the following table, the term <em>regression</em> can be confusing because there are so many specialized varieties. In this class we will only focus on OLS, Nonparametric Regression and Robust Regression.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-6.jpg" alt="Varieties of Regression Analysis" title="Varieties of Regression Analysis"></p>
+<h2 id="OLS-regression"><a href="#OLS-regression" class="headerlink" title="OLS regression"></a>OLS regression</h2><p>$$\hat{Y_i}=\hat{\beta_0}+\hat{\beta_1}X_{1,i}+…+\hat{\beta_k}X_{k,i} \qquad i=1…n$$<br>where $n$ is the number of observatiions and $k$ is the number of predictor variables. In this equation:<br>$\hat{Y_i}$: is the predicted value of the dependent variable for observation $i$ (specifically, it is the estimated mean of the $Y$ distribution, conditional on the set of predictor values).<br>$X_{j,i}$: is the $j^{th}$ predictor value for the $i^{th}$ observation.<br>$\hat{\beta_0}$: is the intercept (the predicted value of $Y$ when all the predictor variables equal 0).<br>$\hat{\beta_j}$: is the regression coefficient for the $j^{th}$ predictor (slope representing the change in $Y$ for a unit change in $X_j$).</p>
+<p>To properly interpret the coefficients of the OLS model, you must satisfy a number of statistical assumptions:  </p>
+<ul>
+<li><strong>Normality</strong>—For fixed values of the independent variables, the dependent<br>variable is normally distributed.  </li>
+<li><strong>Independence</strong>—The $Y_i$ values are independent of each other.</li>
+<li><strong>Linearity</strong>—The dependent variable is linearly related to the independent<br>variables.</li>
+<li><strong>Homoscedasticity</strong>—The variance of the dependent variable doesn’t vary with the<br>levels of the independent variables.</li>
+</ul>
+<h2 id="lm-function"><a href="#lm-function" class="headerlink" title="lm(.) function"></a>lm(.) function</h2><ul>
+<li>OLS regression can be conducted by using <code>lm</code> function.  </li>
+<li>Usage of <code>lm</code>:  <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lm(formula, data, subset, weights, na.action, method = <span class="string">"qr"</span>, model = <span class="literal">TRUE</span>, x = <span class="literal">FALSE</span>, y = <span class="literal">FALSE</span>, qr= <span class="literal">TRUE</span>, singular.ok= <span class="literal">TRUE</span>, contrasts = <span class="literal">NULL</span>, offset, <span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>Note:</strong> You can find out more explanation on parameter settings by browsing R help documentation.  </p>
+<ul>
+<li>An example:<br>Suppose you need to conduct OLS regression on $y=c+x_1+x_2+…+x_n$, data have been stored in a data frame named <em>mydata</em>.<br>You type the following commend in RStudio to tell R to conduct OLS regression:  <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">reg=lm(y~x1+x2...+xn, mydata)</div><div class="line">```  </div><div class="line">&amp;emsp;&amp;emsp;Then you use the following commend to tell R to report the result:</div><div class="line">```R</div><div class="line">summary(reg)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>There are some symbols listed in the following table, which are commonly used in regression.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-7.JPG" alt="Symbols Commonly Used in Regression" title="Symbols Commonly Used in Regression"></p>
+<h2 id="Exercises"><a href="#Exercises" class="headerlink" title="Exercises"></a>Exercises</h2><p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-exercise1.jpg" alt="Exercises1" title="Exercises1"></p>
+<h2 id="Regression-diagnostics"><a href="#Regression-diagnostics" class="headerlink" title="Regression diagnostics"></a>Regression diagnostics</h2><ul>
+<li><p>Test whether the coefficients in regression model satisfy certain constrains.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(car)</div><div class="line">lht(reg, <span class="string">"the constrains you want to test"</span>)</div></pre></td></tr></table></figure>
+</li>
+<li><p>Test whether some variables in your regression model are combined significant.<br>1.Use <code>anova</code> function</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">anova(reg1, reg2)</div><div class="line">``` </div><div class="line">&amp;emsp;&amp;emsp;2.Use `waldtest` function</div><div class="line">```R</div><div class="line"><span class="keyword">library</span>(lmtest)</div><div class="line">waldtest(reg1,reg2,vcov=vcovHC(reg2,type=<span class="string">"HC0"</span>))</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;Q: What is vcovHC? (Hint: Please find the answer in R help documentation or Google.)</p>
+<h2 id="Exercises-1"><a href="#Exercises-1" class="headerlink" title="Exercises"></a>Exercises</h2><p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-exercise2.jpg" alt="Exercises2" title="Exercises2"></p>
+<h2 id="Heteroskedasticity"><a href="#Heteroskedasticity" class="headerlink" title="Heteroskedasticity"></a>Heteroskedasticity</h2><ul>
+<li><p>What is heteroskedasticity?<br>One of our assumptions for linear regression is that the random error terms in our regression have same variance. However, there are times that regression ends with heteroskedasticity, which means the random error terms have different variances.</p>
+</li>
+<li><p>What may happen if heteroskedasticity does exist in our regression?<br>In this situation, t-test and F-test may become not reliable and misleading. Those supposed-to-be-significant coefficients are not significant any more.</p>
+</li>
+<li><p>How to discern heteroskedasticity?  </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1.Breusch-Pagan test</span></div><div class="line">reg=lm(y~x1+x2,mydata)</div><div class="line">bptest(reg)</div><div class="line"></div><div class="line"><span class="comment"># 2.White test</span></div><div class="line"><span class="comment">#This is one solution</span></div><div class="line">bptest(reg, ~x1+x2+I(x1^<span class="number">2</span>)+I(x2^<span class="number">2</span>)+x1:x2, mydata) </div><div class="line"><span class="comment">#This is another one.</span></div><div class="line"><span class="keyword">library</span>(bstats) </div><div class="line">white.test(reg)</div></pre></td></tr></table></figure>
+</li>
+<li><p>How to get robust standard error when heteroskedasticity appears?  </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># The first method (recommended)</span></div><div class="line"><span class="keyword">library</span>(sandwich)</div><div class="line"><span class="keyword">library</span>(lmtest)</div><div class="line">coeftest(reg, vcov=vcovHC(reg,”HC0”))</div><div class="line"><span class="comment"># The second method</span></div><div class="line"><span class="keyword">library</span>(car)</div><div class="line">sqrt(diag(vcovHC(reg1,type=<span class="string">"HC0"</span>)))</div><div class="line"><span class="comment"># The third method</span></div><div class="line"><span class="keyword">library</span>(car)</div><div class="line">sqrt(diag(hccm(reg1),type=<span class="string">"hc0"</span>)))</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Exercises-2"><a href="#Exercises-2" class="headerlink" title="Exercises"></a>Exercises</h2><p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-exercise3.jpg" alt="Exercises3" title="Exercises3"></p>
+
+          
+        
+      </div>
+      <footer>
+        
+          <div class="alignright">
+            <a href="/2015/12/12/r-intro-2/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
+          </div>
+        
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  
+    <div class="post-content-index">
+  
+      
+        <header>
+          <div class="icon"></div>
+            
+    
+      <h1 class="title transition"><a href="/2015/12/11/r-intro-1/">R Introduction Part 1</a></h1>
+    
+  
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2015-12-11T21:04:44.000Z">2015-12-11</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
+
+                
+                  <a href="/">Zichao Yang</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
+              
+                <a href="/2015/12/11/r-intro-1/#disqus_thread">Comments</a>
+
+              
+          </ul>
+        </header>
+      
+      <div class="entry">
+        
+          
+            <ul>
+<li>This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.</li>
+<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a>.</li>
+<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="external">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="external">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
+</ul>
+<h2 id="What-is-R"><a href="#What-is-R" class="headerlink" title="What is R ?"></a>What is R ?</h2><p>R was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, and is currently developed by the R Development Core Team, of which Chambers is a member. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. For more information, please see Wiki: <a href="https://en.wikipedia.org/wiki/R_(programming_language" target="_blank" rel="external">R(programming language)</a>)</p>
+<h2 id="Why-choose-R"><a href="#Why-choose-R" class="headerlink" title="Why choose R?"></a>Why choose R?</h2><ol>
+<li>R is a GNU project and totally free for everyone.</li>
+<li>R runs on a wide array of platforms, like  Windows, Unix and Mac OS. You can even run R programming on your iPhone or iPad!</li>
+<li>R can easily import data from various types of data sources, including text files, database management systems, statistical packages, and specialized data repositories. It can write data out to these systems as well.</li>
+<li>R contains advanced statistical routines not yet available in other packages. In fact, new methods become available for download on a weekly basis.</li>
+<li>R has state-of-the-art graphics capabilities (try the package: ggplot2).</li>
+<li>R has a global community of more than 2 million users and developers who voluntarily contribute their time and technical expertise to maintain, support and extend the R language and its environment, tools and infrastructure. </li>
+</ol>
+<h2 id="Comparing-R-with-other-mainstream-softwares"><a href="#Comparing-R-with-other-mainstream-softwares" class="headerlink" title="Comparing R with other mainstream softwares"></a>Comparing R with other mainstream softwares</h2><ul>
+<li>Stata: Widely used in Economics field.</li>
+<li>SAS: excels at coping with big data, the syntax is awkward.</li>
+<li>Matlab: has strong ability of numerical value calculation and is incredible large.</li>
+<li>SPSS: widely used in Business Management.</li>
+<li>Eviews: is good at Time Series Analysis.</li>
+</ul>
+<p>&emsp; <strong> Most important:</strong> They are all commercial software, which means they are not free to individual user.</p>
+<h2 id="Installation-of-R"><a href="#Installation-of-R" class="headerlink" title="Installation of R"></a>Installation of R</h2><ul>
+<li>How to get R?<br>R can be download from <a href="http://www.cran.r-project.org/" target="_blank" rel="external">CRAN</a><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-download.png" alt="R Download Page" title="R Download Page">  </li>
+<li>RStudio<br>RStudio is an amazing IDE for R. I strongly recommend you to run R program on RStudio.<br>RStudio can be download from <a href="http://www.rstudio.com/" target="_blank" rel="external">RStuio Website</a><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/rstudio-download.png" alt="RStudio Download Page" title="RStudio Download Page"></li>
+</ul>
+<h2 id="Packages-of-R"><a href="#Packages-of-R" class="headerlink" title="Packages of R"></a>Packages of R</h2><p>One feature of R is that most functions can be achieved by the installation of different packages. There are 6523 packages on the websit of CRAN and the number is still growing.  </p>
+<ul>
+<li>Install packages<br>1.Install packages manually<br>Download package from <a href="http://www.cran.r-project.org" target="_blank" rel="external">This Page</a>, RStudio-&gt;Tools-&gt;Install Packages<br>2.Install packages by using command <code>install.package()</code><br>(1) Use command <code>install.packages()</code>, then choose the package you need.<br>(2) Use command <code>install.packages(&quot;lmtest&quot;)</code>, R will install the “lmtest” package and those supporting packages automatically.  </li>
+</ul>
+<ol>
+<li>Load packages by using command <code>library()</code><br>Use <code>library(lmtest)</code> to load the “lmtest” package before you want to use this package.<br><strong>Note:</strong> You only need to install packages once, but you need to reload those needed packages every time after you restart RStudio.</li>
+<li>Update packages<br>Use command <code>update.packages()</code> to update those packages you have installed.</li>
+</ol>
+<h2 id="Other-notes-on-using-R"><a href="#Other-notes-on-using-R" class="headerlink" title="Other notes on using R"></a>Other notes on using R</h2><ul>
+<li>R is a case sensitive language.</li>
+<li><code>=</code> and <code>&lt;-</code> can both be used as assignment symbol.<br>Personally, I do not think there is a big difference between them and I highly recommend using <code>=</code> instead of <code>&lt;-</code>. For more information on the subtle difference between these two symbol, please see <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and" target="_blank" rel="external">stackoverflow</a> and <a href="http://www.zhihu.com/question/20698554" target="_blank" rel="external">知乎</a>.</li>
+<li>We use <code>#</code> in R to indicate the following part is comment and should not be compiled.</li>
+<li>R cannot read <code>setwd(&quot;c:\myprogram&quot;)</code>, you should use ‘setwd(“c:/myprogram”)’ or <code>setwd(&quot;c:\\myprogram&quot;)</code>.</li>
+<li>Please wisely use <code>help()</code> or <code>?the_name_of_funciton</code> to read help documentation. The website <a href="http://rseek.org/" target="_blank" rel="external">Rseeker</a> and <a href="https://google.com/" target="_blank" rel="external">Google</a> are also really helpful.</li>
+</ul>
+<h2 id="Create-dataset"><a href="#Create-dataset" class="headerlink" title="Create dataset"></a>Create dataset</h2><p>A dataset is usually a rectangular array of data with rows representing observations<br>and columns representing variables. The following table provides an example of a hypothetical<br>patient dataset.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-1.JPG" alt="A Patient Dataset" title="A Patient Dataset">  </p>
+<ul>
+<li><p>How to construct a dataset?<br>1.Import or type data into the data structures.<br>2.Choose a type of data structures to store data.</p>
+</li>
+<li><p>Data input<br>From the following figure, we can see that R can cope with different data formats.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-2.jpg" alt="Different Data Types" title="Different Data Types"><br><code>read.table()</code> #This can be used to read txt file, the argument <code>na.strings=&quot;.&quot;</code> should be used to convert the missing value (“.” in txt file) to NA value.<br><code>read.csv()</code> #This can be used to read CSV file, highly recommended.<br><code>load()</code> #This can be used to load Rdata file.<br><strong>Note:</strong> You can find out more information on how to input other different types of data  in the book <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external"><em>R in Action</em></a> (<a href="http://book.douban.com/subject/20382244/" target="_blank" rel="external"><em>R语言实战</em></a>).  </p>
+</li>
+<li><p>Data structures<br>R has a wide variety of objects for holding data, including scalars, vectors, matrices,<br>arrays, data frames, and lists. They differ in terms of the type of data they can hold,<br>how they are created, their structural complexity, and the notation used to identify and<br>access individual elements. The figure shows a diagram of these data structures.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-3.jpg" alt="Different Data Structures" title="Different Data Structures">  </p>
+</li>
+</ul>
+<p>1.Vectors<br>Vectors are one-dimensional arrays that can hold numeric data, character data, or logical<br>data. The combine function <code>c()</code> is used to form the vector.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">a=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)                <span class="comment">#This is a numeric vector.  </span></div><div class="line">b=c(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>)    <span class="comment">#This is a character vector.</span></div><div class="line">c=c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">TRUE</span>)        <span class="comment">#This is a logical vector.</span></div><div class="line">```  </div><div class="line">2.Matrices  </div><div class="line">A matrix is a two-dimensional array where each element has the same mode (numeric,</div><div class="line">character, or logical). Matrices are created with the `matrix` function.</div><div class="line">```R</div><div class="line">x=matrix(<span class="number">1</span>:<span class="number">20</span>, nrow=<span class="number">5</span>, ncol=<span class="number">4</span>)  <span class="comment">#This can create a 5*4 matrix using the number 1~20.</span></div></pre></td></tr></table></figure></p>
+<p>The comment operation symbols in matrix:<br>Dimensions of matrix x: <code>dim(x)</code><br>Rows of matrix x: <code>nrow(x)</code><br>Columns of matrix x: <code>col(x)</code><br>Transpose of matrix x: <code>t(x)</code><br>The value of the determinant of matrix x: <code>det(x)</code><br>If the determinant is not 0, then we can get the inverse of matrix x: <code>solve(x)</code><br>Eigenvalue and eigenvector: <code>y=eigen(x)</code>, then <code>y$val</code> is eigenvalue, <code>y$vec</code> is eigenvector.<br>Multiplication of matrices: <code>a %*% b</code><br>Arithmetic operations and power operation on every element of matrix: <code>+ - * / ^</code>  </p>
+<p><strong>3.Data frames</strong><br>Personally, I think data frame is the most important and common data structure you will deal with in R. A data frame is more general than a matrix in that different columns can contain different modes of data (numeric, character, etc.).<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">patientID= c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</div><div class="line">age = c(<span class="number">25</span>, <span class="number">34</span>, <span class="number">28</span>, <span class="number">52</span>)</div><div class="line">diabetes = c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</div><div class="line">status = c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</div><div class="line">patientdata= data.frame(patientID, age, diabetes, status)</div><div class="line">patientdata   <span class="comment">#patientdata is a data frame.</span></div></pre></td></tr></table></figure></p>
+<p>The different ways to read data from data frame:<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">patientdata[<span class="number">1</span>:<span class="number">2</span>]</div><div class="line">patientdata[c(<span class="string">"diabetes"</span>, <span class="string">"status"</span>)]</div><div class="line">patientdata$age</div></pre></td></tr></table></figure></p>
+<h2 id="Useful-mathematical-functions-and-statistical-functions"><a href="#Useful-mathematical-functions-and-statistical-functions" class="headerlink" title="Useful mathematical functions and statistical functions"></a>Useful mathematical functions and statistical functions</h2><p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-4.JPG" alt="Mathematical Functions" title="Mathematical Functions"><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-5.JPG" alt="Statistical Functions" title="Statistical Functions"></p>
+<h2 id="Useful-data-operation-functions"><a href="#Useful-data-operation-functions" class="headerlink" title="Useful data operation functions"></a>Useful data operation functions</h2><p>1.summary<br>summary is a generic function used to produce result summaries of the results of various model fitting functions.<br><code>summary(data$example)</code> or <code>summary(data)</code>   </p>
+<p>2.sum<br>sum returns the sum of all the values present in its arguments.<br><code>sum(data$example, na.rm=TRUE)</code></p>
+<p>3.nrow and ncol<br><code>nrow</code> and <code>ncol</code> return the number of rows or columns present in x.</p>
+<p>4.cbind and rbind<br>Take a sequence of vector, matrix or data-frame arguments and combine by columns or rows, respectively.</p>
+<p>5.replace<br><code>replace</code> replaces the values in x with indices given in list by those given in values.<br><code>data$V1=replace(data$V1,data$V1&lt;5,0)</code><br>In this example, if the data in column V1 is less than 5, then those data will be converted to 0. This function is really useful when you want to convert your numerical variable to dummy variable.</p>
+<p>6.subset<br>Return subsets of vectors, matrices or data frames which meet conditions.<br><code>subset(data, subset, select)</code></p>
+<p>7.aggregate<br>Splits the data into subsets, computes summary statistics for each, and returns the result in a convenient form.<br><code>aggregate(data, by=list(data$variable), mean)</code><br>In this example, based on the column variable, R splits the data into subsets and computes mean of those subsets.</p>
+<h2 id="Reference-books"><a href="#Reference-books" class="headerlink" title="Reference books"></a>Reference books</h2><ul>
+<li><a href="https://www.researchgate.net/publication/239744618_A_Brief_Guide_to_R_for_Beginners_in_Econometrics" target="_blank" rel="external">A Brief Guide to R for Beginners in Econometrics</a>  </li>
+<li><a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a> (<a href="http://book.douban.com/subject/20382244/" target="_blank" rel="external">R语言实战</a>)  </li>
+<li><a href="http://www.goodreads.com/book/show/3715510-applied-econometrics-with-r" target="_blank" rel="external">Applied Econometrics with R</a></li>
+</ul>
+<h2 id="Reference-websites"><a href="#Reference-websites" class="headerlink" title="Reference websites"></a>Reference websites</h2><ul>
+<li><a href="http://www.rseek.org" target="_blank" rel="external">Rseek</a></li>
+<li><a href="https://www.google.com" target="_blank" rel="external">Google</a></li>
+</ul>
+<h2 id="Reference-online-courses"><a href="#Reference-online-courses" class="headerlink" title="Reference online courses"></a>Reference online courses</h2><ul>
+<li><a href="https://www.coursera.org/course/rprog" target="_blank" rel="external">Johns Hopkins – R Programming</a></li>
+<li><a href="https://www.edx.org/course/analytics-edge-mitx-15-071x-0" target="_blank" rel="external">MIT – The Analytics Edge</a></li>
+</ul>
+
+          
+        
+      </div>
+      <footer>
+        
+          <div class="alignright">
+            <a href="/2015/12/11/r-intro-1/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
+          </div>
+        
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  
+    <div class="post-content-index">
+  
+      
+        <header>
+          <div class="icon"></div>
+            
+    
+      <h1 class="title transition"><a href="/2015/12/10/python-homework-5/">Python Homework Series 5</a></h1>
+    
+  
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2015-12-10T19:12:18.000Z">2015-12-10</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
+
+                
+                  <a href="/">Zichao Yang</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
+              
+                <a href="/2015/12/10/python-homework-5/#disqus_thread">Comments</a>
+
+              
+          </ul>
+        </header>
+      
+      <div class="entry">
+        
+          
+            <ul>
+<li>If you need to read the original questions, please visit the website of <a href="http://bayeswhu.github.io/teaching/qe/Lec7.html#1" target="_blank" rel="external">Quantitative Economics </a>.</li>
+<li>Warning: This is my practice code for exercise of lecture 7, I do not guarantee the accuracy of my answer. </li>
+</ul>
+<h1 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">homemade_bisect</span><span class="params">(f,a,b,tol)</span>:</span></div><div class="line">    lower,upper=a,b</div><div class="line">    <span class="keyword">while</span> upper-lower&gt;tol:</div><div class="line">        middle=<span class="number">0.5</span>*(upper+lower)</div><div class="line">        <span class="keyword">if</span> f(middle)&gt;<span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> homemade_bisect(f,lower,middle,tol)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> homemade_bisect(f,middle,upper,tol)</div><div class="line">    <span class="keyword">return</span> <span class="number">0.5</span>*(upper+lower)</div></pre></td></tr></table></figure>
+<p>The function you want to implement root finding is f, the range for root finding is (a,b) and the parameter tol is used to indicate when to stop this process.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f = <span class="keyword">lambda</span> x: np.sin(<span class="number">4</span> * (x - <span class="number">0.25</span>)) + x + x**<span class="number">20</span> - <span class="number">1</span></div><div class="line">homemade_bisect(f,<span class="number">0</span>,<span class="number">1</span>,<span class="number">10e-5</span>)</div></pre></td></tr></table></figure>
+          
+        
+      </div>
+      <footer>
+        
+          <div class="alignright">
+            <a href="/2015/12/10/python-homework-5/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
+          </div>
+        
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+
+
+
+
+   </div></div>
+    <aside id="sidebar" class="alignright"><div class="padding">
+	
+	  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+	
+	  
+<div class="widget recent-post">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/05/28/threshold/">Introduction to Panel Threshold Model</a>
+      </li>
+    
+      <li>
+        <a href="/2016/03/18/quiz/">Python Quiz</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/13/r-intro-3/">R Introduction Part 3</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/12/r-intro-2/">R Introduction Part 2</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/11/r-intro-1/">R Introduction Part 1</a>
+      </li>
+    
+  </ul>
+</div>
+
+	
+	  
+	
+	  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  
+    <a href="/tags/Python/">Python<small>5</small></a>
+  
+    <a href="/tags/R/">R<small>3</small></a>
+  
+    <a href="/tags/Threshold-Model/">Threshold Model<small>1</small></a>
+  
+    <a href="/tags/李录谈现代化/">李录谈现代化<small>1</small></a>
+  
+</div>
+
+	
+</div></aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="padding">
+	<div class="alignleft">
+	  
+	  &copy; 2016 Zichao Yang
+	  
+	  Powerd by <a href="http://hexo.io/" target="_blank">hexo</a>
+	  and Theme by <a href="https://github.com/halfer53/metro-light" target="_blank">metro-light</a>
+	</div>
+
+	<div class="alignright">
+		
+		
+			<a href="https://github.com/Anonymous-Y" target="_blank" title="Zichao Yang Github"><i class="fa fa-github-square"></i></a>	
+		
+		
+		
+			<a href="http://www.weibo.com/2696788542" target="_blank" title="Zichao Yang Weibo"><i class="fa fa-weibo"></i></a>	
+		
+		
+		
+		
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+
+<div class="scroll-top"><i class="fa fa-arrow-circle-up"></i></div></footer>
+  
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc';
+
+		        (function() {
+		            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		        })();
+		</script>
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc'; 
+
+		(function () {
+		var s = document.createElement('script'); s.async = true;
+		s.type = 'text/javascript';
+		s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+		</script>
+
+  
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+$(window).scroll(function() {
+
+    if($(this).scrollTop() > 400) {
+        $('.scroll-top').fadeIn(200);
+    } else {
+        $('.scroll-top').fadeOut(200);
+    }
+});
+
+$('.scroll-top').bind('click', function(e) {
+    e.preventDefault();
+    $('body,html').animate({scrollTop:0},200);
+});
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>

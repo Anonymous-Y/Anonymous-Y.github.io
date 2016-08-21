@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+  
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+  
+  <title>R Introduction Part 3 | Zichao Yang&#39;s Blog</title>
+  <meta name="author" content="Zichao Yang">
+  
+  <meta name="description" content="This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.
+Most fi">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="R Introduction Part 3"/>
+  <meta property="og:site_name" content="Zichao Yang&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+    <meta http-equiv="Content-Language" content="en"/>
+  
+
+  <link href="/img/32.png" rel="icon">
+  
+    <link rel="apple-touch-icon" href="/img/16.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/16.png">
+    
+
+  <link rel="alternate" href="/atom.xml" title="Zichao Yang&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+  <style type="text/css">
+  /* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) */
+body{ -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+
+  
+
+  
+    article .post-content-index .entry{max-height: 550px; overflow:hidden;}
+  
+</style>
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'null', 'auto');
+  ga('send', 'pageview');
+ 
+</script>
+
+
+
+
+  
+    
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball' rel='stylesheet' type='text/css'>
+    
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+
+
+
+</head>
+
+
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="padding">
+	<div class="alignleft logo">
+	  <h1><a href="/">Zichao Yang&#39;s Blog</a></h1>
+	</div>
+	<nav id="main-nav" class="alignright">
+		<input type="checkbox" id="toggle" />
+		<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick><i class="fa fa-bars"></i></label>
+	  <ul class="menu">
+	    
+	      <li><a href="/">Home</a></li>
+	    
+	      <li><a href="/archives">Archives</a></li>
+	    
+	      <li><a href="/about">About</a></li>
+	    
+	    
+	  </ul>
+	</nav>
+	<div class="clearfix"></div>
+</div>
+</header>
+  <div id="page-heading-wrap">
+  	<div class="inner">
+      <div class="padding">
+    		
+          <h1>R Introduction Part 3</h1>
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2015-12-13T18:02:17.000Z">2015-12-13</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
+
+                
+                  <a href="/">Zichao Yang</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
+              
+                <a href="#disqus_thread">Comments</a>
+
+              
+            </li>
+          </ul>
+        
+      </div>
+  	</div>
+  </div>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper" class="padding"><article class="post">
+  
+  
+    <div class="post-content">
+  
+      
+      <div class="entry">
+        
+          <ul>
+<li>This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.</li>
+<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a>.</li>
+<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="external">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="external">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
+</ul>
+<h2 id="Nonlinear-Regression"><a href="#Nonlinear-Regression" class="headerlink" title="Nonlinear Regression"></a>Nonlinear Regression</h2><h3 id="What-is-Nonlinear-Regression"><a href="#What-is-Nonlinear-Regression" class="headerlink" title="What is Nonlinear Regression?"></a>What is Nonlinear Regression?</h3><p>In statistics, nonlinear regression is a form of regression analysis in which observational data are modeled by a function which is a nonlinear combination of the model parameters and depends on one or more independent variables.<br>1.Linear Regression<br>$$Y_i=\beta_1+\beta_2X_i+\mu_i$$<br>2.Nonlinear Regression<br>$$Y_i=\beta_1e^{\beta_2X_i}+\mu_i$$</p>
+<h3 id="How-to-cope-with-Nonlinear-Regression"><a href="#How-to-cope-with-Nonlinear-Regression" class="headerlink" title="How to cope with Nonlinear Regression?"></a>How to cope with Nonlinear Regression?</h3><p><strong>1.Delta Method</strong>  </p>
+<ul>
+<li>Single parameter situation<br>If we know the standard error of parameter $\hat{\theta}$, however, what we are really interested is the standard error of parameter $\gamma=g(\theta)$, how to estimate its standard error?<br>1.If $g(\theta)$ is a linear function, you know how to get it.<br>2.If $g(\theta)$ is not a linear function, then:<br>We assume the standard error of $\hat{\theta}$ is $S_{\theta}$, and the standard error of $\hat{\gamma}$ is $S_{\gamma}$, the relationship between them is<br>$$S_{\gamma}\equiv|g^\prime(\hat{\theta})|S_{\theta}$$</li>
+<li>Multi-parameters situation<br>If $\theta$ and $\gamma$ are both vectors, then how? We assume the first one is a $k$-dimension vector and the latter is a $l$-dimension vector, $l\leqq k$. $\gamma$ is a function of $\theta$: $\gamma=g(\theta)$, where $g(\theta)$ is a monotonic and continuous $l$-dimension vector function. Then we can get the covariance matrix of $\hat{\gamma}$ using the following equation:<br>$$\widehat{Var}(\hat{\gamma})\equiv\hat{G}\widehat{Var}(\hat{\theta})\hat{G}^T \qquad (1)$$<br>where $\widehat{Var}(\hat{\theta})$ is the estimation of covariance matrix, $\hat{G}$ is Jacoby matrix.<br>Then, how to get $\widehat{Var}(\hat{\theta})$ ?<br>Regardless of the form of the error covariance matrix $\Omega$, the covariance matrix of $\hat{\theta}$ equals to:<br>$$\widehat{Var}(\hat{\theta})=E((\hat{\theta}-\theta_0)(\hat{\theta}-\theta_0)^T)=(X^TX)^{-1}X^T{\Omega}X(X^TX)^{-1} \qquad (2)$$<br>where $X$ is the matrix of independent variables, $\Omega$ is error covariance matrix.  </li>
+</ul>
+<p><strong>Example</strong><br>Suppose we have the following regression:<br>$$Y_i=\theta_0+\frac{\alpha}{1-\alpha}X_1+\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2}X_2$$<br>So, in this case we can get $\theta=\begin{pmatrix} \alpha \\ \sigma \end{pmatrix}$ &emsp;&emsp; $\gamma=\begin{pmatrix} \frac{\alpha}{1-\alpha} \\ \frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2} \end{pmatrix}$<br>$$\gamma=g(\theta) \Rightarrow \begin{cases}\gamma_1=g_1(\alpha,\sigma)\\ \gamma_2=g_2(\alpha,\sigma) \end{cases}$$<br>Construction of Jacoby matrix<br>$$\hat{G} = \begin{bmatrix}<br>\frac{\partial\gamma_1}{\partial\theta_1} &amp; \frac{\partial\gamma_1}{\partial\theta_2} \\<br>\frac{\partial\gamma_2}{\partial\theta_1} &amp; \frac{\partial\gamma_2}{\partial\theta_2}<br>\end{bmatrix}$$<br>So,<br>$$ \hat{G} = \begin{bmatrix}<br>\frac{\partial(\frac{\alpha}{1-\alpha})}{\partial\alpha} &amp; \frac{\partial(\frac{\alpha}{1-\alpha})}{\partial\sigma} \\<br>\frac{\partial(\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2})}{\partial\alpha} &amp; \frac{\partial(\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2})}{\partial\sigma}<br>\end{bmatrix}$$<br>By conducting OLS regression, we can get $\hat{\gamma_1}$, $\hat{\gamma_2}$ and the error covariance matrix $\Omega$.<br>Following equation (2), we can get:<br>$$\widehat{Var}(\hat{\gamma})=(X^TX)^{-1}X^T{\Omega}X(X^TX)^{-1}$$<br>Then, according to equation (1), we can get:<br>$$\widehat{Var}(\hat{\theta})\equiv(\hat{G})^{-1}\widehat{Var}(\hat{\gamma})(\hat{G}^T)^{-1}$$</p>
+<p><strong>2. nls(.) function</strong>  </p>
+<ul>
+<li><p><code>nls</code> is a build-in function in R, which is used to determine the nonlinear (weighted) least-squares estimates of the parameters of a nonlinear model.  </p>
+</li>
+<li><p>Usage of <code>nls</code>:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nls(formula, data, start, control, algorithm, trace, subset, weights, na.action, model, lower, upper, <span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>Note:</strong> You can find out more explanation on parameter settings by browsing R help documentation. </p>
+<p> <strong>Example</strong><br>Suppose we still have the following regression:<br>$$Y_i=\theta_0+\frac{\alpha}{1-\alpha}X_1+\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2}X_2$$<br>We can use <code>nls</code> to get the estimation of parameters $\alpha$, $\sigma$ directly.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#In this method, we need to tell R the approximate initial value of alpha and sigma in the first place.</span></div><div class="line">lm=nls(y~constant+alpha/(<span class="number">1</span>-alpha)*x1+<span class="number">1</span>/<span class="number">2</span>*(sigma-<span class="number">1</span>)/sigma*alpha/(<span class="number">1</span>-alpha)^<span class="number">2</span>*x2,start=list(constant=<span class="number">5</span>,alpha=<span class="number">0.3</span>,sigma=<span class="number">1.5</span>),trace=<span class="literal">F</span>)</div><div class="line">summary(lm)</div></pre></td></tr></table></figure></p>
+<h2 id="Notice-on-paper-replication"><a href="#Notice-on-paper-replication" class="headerlink" title="Notice on paper replication"></a>Notice on paper replication</h2><ul>
+<li>You need to replicate the paper <a href="http://onlinelibrary.wiley.com/doi/10.1002/jae.722/pdf" target="_blank" rel="external">The Solow Model with CES Technology: Nonlinearities and Parameter Heterogeneity</a> as the final assignment in this course. Related data can be download from <a href="http://qed.econ.queensu.ca/jae/datasets/masanjala001/" target="_blank" rel="external">here</a>.</li>
+<li>You only need to replicate the Table 1, Table 2 and Table 4.</li>
+<li>You need to use Delta method to estimate the standard errors of parameters of <em>Restricted Basic Solow-CD Model</em>, <em>Restricted Extended Solow-CD Model</em> and <em>Restricted Basic Solow-CES Model</em> in Table 1 and Table 2.</li>
+<li>You need to use dur_john.Rdata for Table 1. And you need to delete those following rows of data to get the right answer: 13, 14, 6, 19, 36, 44, 45, 50, 51, 56, 59, 62, 66, 68, 69, 72, 78, 81, 82, 91, 111, 114, 118.</li>
+<li>You need to use datamp2.Rdata to replicate Table 2.</li>
+<li>You need to use datamp1.Rdata to replicate Table 4.</li>
+<li>Data description in the original file are not totally correct. Please see the following data description, which I have amended.</li>
+</ul>
+<h3 id="Data-description"><a href="#Data-description" class="headerlink" title="Data description"></a>Data description</h3><p>Winford H. Masanjala and Chris Papageorgiou, “The Solow Model with CES<br>Technology: Nonlinearities and Parameter Heterogeneity”, Journal of Applied<br>Econometrics, Vol. 19, No. 2, 2004, pp. 171-201.<br>&nbsp;</p>
+<h4 id="Documentation-for-data-in-dur-john-Rdata"><a href="#Documentation-for-data-in-dur-john-Rdata" class="headerlink" title="Documentation for data in dur_john.Rdata"></a>Documentation for data in dur_john.Rdata</h4><p>CODE=Country number in Summers-Heston dataset.<br>NONOIL=1 for nonoil producing countries.<br>INTER=1 for countries with better quality data.<br>OECD=1 for OECD countries.<br>GDP60=Per capita GDP in 1960.<br>GDP85=Per capita GDP in 1985.<br>GDPGRO=Average growth rate of per capita GDP (1960-1985).<br>POPGRO=Average growth rate of working-age population (1960-1985).<br>IONY=Average ratio of investment (including Government Investment) to GDP(1960-1985).<br>SCHOOL=Average fraction of working-age population enrolled in secondary school (1960-1985).<br>LIT60=fraction of the population over 15 years old that is able to read and write in 1960.<br>NA indicates that the observation is missing. This dataset has also being used in Durlauf and Johnson (JAE 1995).<br>&nbsp;<br>There are 121 observations for each variable.  All of the data with the exception of LIT60 are from Mankiw, Romer and Weil (QJE 1992), who in turn constructed the data from Penn World Tables 4.0.  LIT60 is from the World Bank’s World Development Report.<br>&nbsp;</p>
+<h4 id="Documentation-for-data-in-datamp1-txt"><a href="#Documentation-for-data-in-datamp1-txt" class="headerlink" title="Documentation for data in datamp1.txt"></a>Documentation for data in datamp1.txt</h4><p>CODE=Country number in Summers-Heston dataset.<br>GDP60=Per capita GDP in 1960.<br>GDP85=Per capita GDP in 1985.<br>POPGRO=Average growth rate of working-age population (1960-1985).<br>IONY=Average ratio of investment to GDP (1960-1985).<br>SCHOOL=Average fraction of working-age population enrolled in secondary school (1960-1985).<br>LIT60=fraction of the population over 15 years old that is able to read and write in 1960.<br>&nbsp;<br>There are 96 observations for each variable.  All of the data with the exception of LIT60 are from Mankiw, Romer and Weil (QJE 1992) who in turn constructed the data from Penn World Tables 4.0.  LIT60 is from the World Bank’s World Development Report.<br>&nbsp;</p>
+<h4 id="Documentation-for-data-in-datamp2-txt"><a href="#Documentation-for-data-in-datamp2-txt" class="headerlink" title="Documentation for data in datamp2.txt"></a>Documentation for data in datamp2.txt</h4><p>CODE=Country number in Summers-Heston dataset.<br>GDP60=Per capita GDP in 1960.<br>GDP85=Per capita GDP in 1985.<br>IONY=Average ratio of investment to GDP (1960-1995).<br>SCHOOL=Average fraction of working-age population enrolled in secondary school (1960-1995).<br>POPGRO=Average growth rate of working-age population (1960-1995).<br>&nbsp;<br>There are 90 observations for each variable.  All of the data are from Bernanke and Gurkaynak (NBER Macroeconomics Annual 2001) who constructed the data from Penn World Tables 6.0. </p>
+
+        
+      </div>
+      <footer>
+        
+          
+          
+  
+  <div class="tags">
+    <a href="/tags/R/">R</a>
+  </div>
+
+          <div class="share">
+  
+</div>
+          
+<nav class="article-nav clearfix">
+ 
+ <div class="article-prev" >
+ <a href="/2016/03/18/quiz/" title="Python Quiz">
+  <i class="fa fa-long-arrow-left"></i>
+  <span>
+  Python Quiz</span>
+</a>
+</div>
+
+
+<div class="article-next">
+<a href="/2015/12/12/r-intro-2/"  title="R Introduction Part 2">
+ <span>R Introduction Part 2
+</span>
+<i class="fa fa-long-arrow-right"></i>
+</a>
+</div>
+
+</nav>
+
+        
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+</article>
+
+
+<section id="comment">
+  <h2 class="title">Comments</h2>
+
+  
+
+  <div id="disqus_thread"></div>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright"><div class="padding">
+	
+	  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+	
+	  
+<div class="widget recent-post">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/05/28/threshold/">Introduction to Panel Threshold Model</a>
+      </li>
+    
+      <li>
+        <a href="/2016/03/18/quiz/">Python Quiz</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/13/r-intro-3/">R Introduction Part 3</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/12/r-intro-2/">R Introduction Part 2</a>
+      </li>
+    
+      <li>
+        <a href="/2015/12/11/r-intro-1/">R Introduction Part 1</a>
+      </li>
+    
+  </ul>
+</div>
+
+	
+	  
+	
+	  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  
+    <a href="/tags/Python/">Python<small>5</small></a>
+  
+    <a href="/tags/R/">R<small>3</small></a>
+  
+    <a href="/tags/Threshold-Model/">Threshold Model<small>1</small></a>
+  
+    <a href="/tags/李录谈现代化/">李录谈现代化<small>1</small></a>
+  
+</div>
+
+	
+</div></aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="padding">
+	<div class="alignleft">
+	  
+	  &copy; 2016 Zichao Yang
+	  
+	  Powerd by <a href="http://hexo.io/" target="_blank">hexo</a>
+	  and Theme by <a href="https://github.com/halfer53/metro-light" target="_blank">metro-light</a>
+	</div>
+
+	<div class="alignright">
+		
+		
+			<a href="https://github.com/Anonymous-Y" target="_blank" title="Zichao Yang Github"><i class="fa fa-github-square"></i></a>	
+		
+		
+		
+			<a href="http://www.weibo.com/2696788542" target="_blank" title="Zichao Yang Weibo"><i class="fa fa-weibo"></i></a>	
+		
+		
+		
+		
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+
+<div class="scroll-top"><i class="fa fa-arrow-circle-up"></i></div></footer>
+  
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc';
+
+		        (function() {
+		            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		        })();
+		</script>
+
+		<script type="text/javascript">
+		var disqus_shortname = 'yzc'; 
+
+		(function () {
+		var s = document.createElement('script'); s.async = true;
+		s.type = 'text/javascript';
+		s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+		</script>
+
+  
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+$(window).scroll(function() {
+
+    if($(this).scrollTop() > 400) {
+        $('.scroll-top').fadeIn(200);
+    } else {
+        $('.scroll-top').fadeOut(200);
+    }
+});
+
+$('.scroll-top').bind('click', function(e) {
+    e.preventDefault();
+    $('body,html').animate({scrollTop:0},200);
+});
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+</body>
+</html>
