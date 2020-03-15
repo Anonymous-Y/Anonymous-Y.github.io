@@ -2,7 +2,7 @@
 
 <html lang="en">
   
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>R Introduction Part 3 | Zichao Yang&#39;s Blog</title>
@@ -14,15 +14,15 @@ Most fi">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="R Introduction Part 3"/>
-  <meta property="og:site_name" content="Zichao Yang&#39;s Blog"/>
+  <meta property="og:title" content="R Introduction Part 3">
+  <meta property="og:site_name" content="Zichao Yang&#39;s Blog">
 
   
-    <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="undefined">
   
 
   
-    <meta http-equiv="Content-Language" content="en"/>
+    <meta http-equiv="Content-Language" content="en">
   
 
   <link href="/img/32.png" rel="icon">
@@ -64,7 +64,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 
   
     
-      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball' rel='stylesheet' type='text/css'>
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball" rel="stylesheet" type="text/css">
     
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -74,7 +74,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 
 
 </head>
-
+</html>
 
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="padding">
@@ -137,8 +137,8 @@ body{ -webkit-animation: bugfix infinite 1s; }
         
           <ul>
 <li>This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.</li>
-<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a>.</li>
-<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="external">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="external">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
+<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="noopener">R in Action</a>.</li>
+<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="noopener">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="noopener">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
 </ul>
 <h2 id="Nonlinear-Regression"><a href="#Nonlinear-Regression" class="headerlink" title="Nonlinear Regression"></a>Nonlinear Regression</h2><h3 id="What-is-Nonlinear-Regression"><a href="#What-is-Nonlinear-Regression" class="headerlink" title="What is Nonlinear Regression?"></a>What is Nonlinear Regression?</h3><p>In statistics, nonlinear regression is a form of regression analysis in which observational data are modeled by a function which is a nonlinear combination of the model parameters and depends on one or more independent variables.<br>1.Linear Regression<br>$$Y_i=\beta_1+\beta_2X_i+\mu_i$$<br>2.Nonlinear Regression<br>$$Y_i=\beta_1e^{\beta_2X_i}+\mu_i$$</p>
 <h3 id="How-to-cope-with-Nonlinear-Regression"><a href="#How-to-cope-with-Nonlinear-Regression" class="headerlink" title="How to cope with Nonlinear Regression?"></a>How to cope with Nonlinear Regression?</h3><p><strong>1.Delta Method</strong>  </p>
@@ -152,13 +152,13 @@ body{ -webkit-animation: bugfix infinite 1s; }
 <li><p><code>nls</code> is a build-in function in R, which is used to determine the nonlinear (weighted) least-squares estimates of the parameters of a nonlinear model.  </p>
 </li>
 <li><p>Usage of <code>nls</code>:</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nls(formula, data, start, control, algorithm, trace, subset, weights, na.action, model, lower, upper, <span class="keyword">...</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nls(formula, data, start, control, algorithm, trace, subset, weights, na.action, model, lower, upper, <span class="keyword">...</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>&emsp;&emsp;<strong>Note:</strong> You can find out more explanation on parameter settings by browsing R help documentation. </p>
-<p> <strong>Example</strong><br>Suppose we still have the following regression:<br>$$Y_i=\theta_0+\frac{\alpha}{1-\alpha}X_1+\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2}X_2$$<br>We can use <code>nls</code> to get the estimation of parameters $\alpha$, $\sigma$ directly.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#In this method, we need to tell R the approximate initial value of alpha and sigma in the first place.</span></div><div class="line">lm=nls(y~constant+alpha/(<span class="number">1</span>-alpha)*x1+<span class="number">1</span>/<span class="number">2</span>*(sigma-<span class="number">1</span>)/sigma*alpha/(<span class="number">1</span>-alpha)^<span class="number">2</span>*x2,start=list(constant=<span class="number">5</span>,alpha=<span class="number">0.3</span>,sigma=<span class="number">1.5</span>),trace=<span class="literal">F</span>)</div><div class="line">summary(lm)</div></pre></td></tr></table></figure></p>
+<p> <strong>Example</strong><br>Suppose we still have the following regression:<br>$$Y_i=\theta_0+\frac{\alpha}{1-\alpha}X_1+\frac{1}{2}\frac{\sigma-1}{\sigma}\frac{\alpha}{(1-\alpha)^2}X_2$$<br>We can use <code>nls</code> to get the estimation of parameters $\alpha$, $\sigma$ directly.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#In this method, we need to tell R the approximate initial value of alpha and sigma in the first place.</span></span><br><span class="line">lm=nls(y~constant+alpha/(<span class="number">1</span>-alpha)*x1+<span class="number">1</span>/<span class="number">2</span>*(sigma-<span class="number">1</span>)/sigma*alpha/(<span class="number">1</span>-alpha)^<span class="number">2</span>*x2,start=list(constant=<span class="number">5</span>,alpha=<span class="number">0.3</span>,sigma=<span class="number">1.5</span>),trace=<span class="literal">F</span>)</span><br><span class="line">summary(lm)</span><br></pre></td></tr></table></figure></p>
 <h2 id="Notice-on-paper-replication"><a href="#Notice-on-paper-replication" class="headerlink" title="Notice on paper replication"></a>Notice on paper replication</h2><ul>
-<li>You need to replicate the paper <a href="http://onlinelibrary.wiley.com/doi/10.1002/jae.722/pdf" target="_blank" rel="external">The Solow Model with CES Technology: Nonlinearities and Parameter Heterogeneity</a> as the final assignment in this course. Related data can be download from <a href="http://qed.econ.queensu.ca/jae/datasets/masanjala001/" target="_blank" rel="external">here</a>.</li>
+<li>You need to replicate the paper <a href="http://onlinelibrary.wiley.com/doi/10.1002/jae.722/pdf" target="_blank" rel="noopener">The Solow Model with CES Technology: Nonlinearities and Parameter Heterogeneity</a> as the final assignment in this course. Related data can be download from <a href="http://qed.econ.queensu.ca/jae/datasets/masanjala001/" target="_blank" rel="noopener">here</a>.</li>
 <li>You only need to replicate the Table 1, Table 2 and Table 4.</li>
 <li>You need to use Delta method to estimate the standard errors of parameters of <em>Restricted Basic Solow-CD Model</em>, <em>Restricted Extended Solow-CD Model</em> and <em>Restricted Basic Solow-CES Model</em> in Table 1 and Table 2.</li>
 <li>You need to use dur_john.Rdata for Table 1. And you need to delete those following rows of data to get the right answer: 13, 14, 6, 19, 36, 44, 45, 50, 51, 56, 59, 62, 66, 68, 69, 72, 78, 81, 82, 91, 111, 114, 118.</li>

@@ -2,7 +2,7 @@
 
 <html lang="en">
   
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
   <title>R Introduction Part 1 | Zichao Yang&#39;s Blog</title>
@@ -14,15 +14,15 @@ Most fi">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="R Introduction Part 1"/>
-  <meta property="og:site_name" content="Zichao Yang&#39;s Blog"/>
+  <meta property="og:title" content="R Introduction Part 1">
+  <meta property="og:site_name" content="Zichao Yang&#39;s Blog">
 
   
-    <meta property="og:image" content="undefined"/>
+    <meta property="og:image" content="undefined">
   
 
   
-    <meta http-equiv="Content-Language" content="en"/>
+    <meta http-equiv="Content-Language" content="en">
   
 
   <link href="/img/32.png" rel="icon">
@@ -64,7 +64,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 
   
     
-      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball' rel='stylesheet' type='text/css'>
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball" rel="stylesheet" type="text/css">
     
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -74,7 +74,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 
 
 </head>
-
+</html>
 
 <body>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><header id="header" class="inner"><div class="padding">
@@ -137,10 +137,10 @@ body{ -webkit-animation: bugfix infinite 1s; }
         
           <ul>
 <li>This is my lecture note written for undergraduate R programming course, which is a supplementary course of the Advanced Macroeconomics course.</li>
-<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a>.</li>
-<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="external">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="external">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
+<li>Most figures and tables are extracted from <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="noopener">R in Action</a>.</li>
+<li>All exercises are copied from my teacher <a href="http://bayeswhu.github.io/" target="_blank" rel="noopener">Jing Fang</a>‘s <a href="http://bayeswhu.github.io/teaching/r.html" target="_blank" rel="noopener">R Workshop</a>, you can find the data for exercises on the website of R Workshop.</li>
 </ul>
-<h2 id="What-is-R"><a href="#What-is-R" class="headerlink" title="What is R ?"></a>What is R ?</h2><p>R was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, and is currently developed by the R Development Core Team, of which Chambers is a member. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. For more information, please see Wiki: <a href="https://en.wikipedia.org/wiki/R_(programming_language" target="_blank" rel="external">R(programming language)</a>)</p>
+<h2 id="What-is-R"><a href="#What-is-R" class="headerlink" title="What is R ?"></a>What is R ?</h2><p>R was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand, and is currently developed by the R Development Core Team, of which Chambers is a member. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. For more information, please see Wiki: <a href="https://en.wikipedia.org/wiki/R_(programming_language" target="_blank" rel="noopener">R(programming language)</a>)</p>
 <h2 id="Why-choose-R"><a href="#Why-choose-R" class="headerlink" title="Why choose R?"></a>Why choose R?</h2><ol>
 <li>R is a GNU project and totally free for everyone.</li>
 <li>R runs on a wide array of platforms, like  Windows, Unix and Mac OS. You can even run R programming on your iPhone or iPad!</li>
@@ -158,12 +158,12 @@ body{ -webkit-animation: bugfix infinite 1s; }
 </ul>
 <p>&emsp; <strong> Most important:</strong> They are all commercial software, which means they are not free to individual user.</p>
 <h2 id="Installation-of-R"><a href="#Installation-of-R" class="headerlink" title="Installation of R"></a>Installation of R</h2><ul>
-<li>How to get R?<br>R can be download from <a href="http://www.cran.r-project.org/" target="_blank" rel="external">CRAN</a><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-download.png" alt="R Download Page" title="R Download Page">  </li>
-<li>RStudio<br>RStudio is an amazing IDE for R. I strongly recommend you to run R program on RStudio.<br>RStudio can be download from <a href="http://www.rstudio.com/" target="_blank" rel="external">RStuio Website</a><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/rstudio-download.png" alt="RStudio Download Page" title="RStudio Download Page"></li>
+<li>How to get R?<br>R can be download from <a href="http://www.cran.r-project.org/" target="_blank" rel="noopener">CRAN</a><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-download.png" alt="R Download Page" title="R Download Page">  </li>
+<li>RStudio<br>RStudio is an amazing IDE for R. I strongly recommend you to run R program on RStudio.<br>RStudio can be download from <a href="http://www.rstudio.com/" target="_blank" rel="noopener">RStuio Website</a><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/rstudio-download.png" alt="RStudio Download Page" title="RStudio Download Page"></li>
 </ul>
 <h2 id="Packages-of-R"><a href="#Packages-of-R" class="headerlink" title="Packages of R"></a>Packages of R</h2><p>One feature of R is that most functions can be achieved by the installation of different packages. There are 6523 packages on the websit of CRAN and the number is still growing.  </p>
 <ul>
-<li>Install packages<br>1.Install packages manually<br>Download package from <a href="http://www.cran.r-project.org" target="_blank" rel="external">This Page</a>, RStudio-&gt;Tools-&gt;Install Packages<br>2.Install packages by using command <code>install.package()</code><br>(1) Use command <code>install.packages()</code>, then choose the package you need.<br>(2) Use command <code>install.packages(&quot;lmtest&quot;)</code>, R will install the “lmtest” package and those supporting packages automatically.  </li>
+<li>Install packages<br>1.Install packages manually<br>Download package from <a href="http://www.cran.r-project.org" target="_blank" rel="noopener">This Page</a>, RStudio-&gt;Tools-&gt;Install Packages<br>2.Install packages by using command <code>install.package()</code><br>(1) Use command <code>install.packages()</code>, then choose the package you need.<br>(2) Use command <code>install.packages(&quot;lmtest&quot;)</code>, R will install the “lmtest” package and those supporting packages automatically.  </li>
 </ul>
 <ol start="3">
 <li>Load packages by using command <code>library()</code><br>Use <code>library(lmtest)</code> to load the “lmtest” package before you want to use this package.<br><strong>Note:</strong> You only need to install packages once, but you need to reload those needed packages every time after you restart RStudio.</li>
@@ -171,24 +171,24 @@ body{ -webkit-animation: bugfix infinite 1s; }
 </ol>
 <h2 id="Other-notes-on-using-R"><a href="#Other-notes-on-using-R" class="headerlink" title="Other notes on using R"></a>Other notes on using R</h2><ul>
 <li>R is a case sensitive language.</li>
-<li><code>=</code> and <code>&lt;-</code> can both be used as assignment symbol.<br>Personally, I do not think there is a big difference between them and I highly recommend using <code>=</code> instead of <code>&lt;-</code>. For more information on the subtle difference between these two symbol, please see <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and" target="_blank" rel="external">stackoverflow</a> and <a href="http://www.zhihu.com/question/20698554" target="_blank" rel="external">知乎</a>.</li>
+<li><code>=</code> and <code>&lt;-</code> can both be used as assignment symbol.<br>Personally, I do not think there is a big difference between them and I highly recommend using <code>=</code> instead of <code>&lt;-</code>. For more information on the subtle difference between these two symbol, please see <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and" target="_blank" rel="noopener">stackoverflow</a> and <a href="http://www.zhihu.com/question/20698554" target="_blank" rel="noopener">知乎</a>.</li>
 <li>We use <code>#</code> in R to indicate the following part is comment and should not be compiled.</li>
 <li>R cannot read <code>setwd(&quot;c:\myprogram&quot;)</code>, you should use ‘setwd(“c:/myprogram”)’ or <code>setwd(&quot;c:\\myprogram&quot;)</code>.</li>
-<li>Please wisely use <code>help()</code> or <code>?the_name_of_funciton</code> to read help documentation. The website <a href="http://rseek.org/" target="_blank" rel="external">Rseeker</a> and <a href="https://google.com/" target="_blank" rel="external">Google</a> are also really helpful.</li>
+<li>Please wisely use <code>help()</code> or <code>?the_name_of_funciton</code> to read help documentation. The website <a href="http://rseek.org/" target="_blank" rel="noopener">Rseeker</a> and <a href="https://google.com/" target="_blank" rel="noopener">Google</a> are also really helpful.</li>
 </ul>
 <h2 id="Create-dataset"><a href="#Create-dataset" class="headerlink" title="Create dataset"></a>Create dataset</h2><p>A dataset is usually a rectangular array of data with rows representing observations<br>and columns representing variables. The following table provides an example of a hypothetical<br>patient dataset.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-1.JPG" alt="A Patient Dataset" title="A Patient Dataset">  </p>
 <ul>
 <li><p>How to construct a dataset?<br>1.Import or type data into the data structures.<br>2.Choose a type of data structures to store data.</p>
 </li>
-<li><p>Data input<br>From the following figure, we can see that R can cope with different data formats.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-2.jpg" alt="Different Data Types" title="Different Data Types"><br><code>read.table()</code> #This can be used to read txt file, the argument <code>na.strings=&quot;.&quot;</code> should be used to convert the missing value (“.” in txt file) to NA value.<br><code>read.csv()</code> #This can be used to read CSV file, highly recommended.<br><code>load()</code> #This can be used to load Rdata file.<br><strong>Note:</strong> You can find out more information on how to input other different types of data  in the book <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external"><em>R in Action</em></a> (<a href="http://book.douban.com/subject/20382244/" target="_blank" rel="external"><em>R语言实战</em></a>).  </p>
+<li><p>Data input<br>From the following figure, we can see that R can cope with different data formats.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-2.jpg" alt="Different Data Types" title="Different Data Types"><br><code>read.table()</code> #This can be used to read txt file, the argument <code>na.strings=&quot;.&quot;</code> should be used to convert the missing value (“.” in txt file) to NA value.<br><code>read.csv()</code> #This can be used to read CSV file, highly recommended.<br><code>load()</code> #This can be used to load Rdata file.<br><strong>Note:</strong> You can find out more information on how to input other different types of data  in the book <a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="noopener"><em>R in Action</em></a> (<a href="http://book.douban.com/subject/20382244/" target="_blank" rel="noopener"><em>R语言实战</em></a>).  </p>
 </li>
 <li><p>Data structures<br>R has a wide variety of objects for holding data, including scalars, vectors, matrices,<br>arrays, data frames, and lists. They differ in terms of the type of data they can hold,<br>how they are created, their structural complexity, and the notation used to identify and<br>access individual elements. The figure shows a diagram of these data structures.<br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-3.jpg" alt="Different Data Structures" title="Different Data Structures">  </p>
 </li>
 </ul>
-<p>1.Vectors<br>Vectors are one-dimensional arrays that can hold numeric data, character data, or logical<br>data. The combine function <code>c()</code> is used to form the vector.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">a=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)                <span class="comment">#This is a numeric vector.  </span></div><div class="line">b=c(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>)    <span class="comment">#This is a character vector.</span></div><div class="line">c=c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">TRUE</span>)        <span class="comment">#This is a logical vector.</span></div><div class="line">```  </div><div class="line">2.Matrices  </div><div class="line">A matrix is a two-dimensional array where each element has the same mode (numeric,</div><div class="line">character, or logical). Matrices are created with the `matrix` function.</div><div class="line">```R</div><div class="line">x=matrix(<span class="number">1</span>:<span class="number">20</span>, nrow=<span class="number">5</span>, ncol=<span class="number">4</span>)  <span class="comment">#This can create a 5*4 matrix using the number 1~20.</span></div></pre></td></tr></table></figure></p>
+<p>1.Vectors<br>Vectors are one-dimensional arrays that can hold numeric data, character data, or logical<br>data. The combine function <code>c()</code> is used to form the vector.<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)                <span class="comment">#This is a numeric vector.  </span></span><br><span class="line">b=c(<span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>)    <span class="comment">#This is a character vector.</span></span><br><span class="line">c=c(<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">TRUE</span>)        <span class="comment">#This is a logical vector.</span></span><br><span class="line">```  </span><br><span class="line">2.Matrices  </span><br><span class="line">A matrix is a two-dimensional array where each element has the same mode (numeric,</span><br><span class="line">character, or logical). Matrices are created with the `matrix` function.</span><br><span class="line">```R</span><br><span class="line">x=matrix(<span class="number">1</span>:<span class="number">20</span>, nrow=<span class="number">5</span>, ncol=<span class="number">4</span>)  <span class="comment">#This can create a 5*4 matrix using the number 1~20.</span></span><br></pre></td></tr></table></figure></p>
 <p>The comment operation symbols in matrix:<br>Dimensions of matrix x: <code>dim(x)</code><br>Rows of matrix x: <code>nrow(x)</code><br>Columns of matrix x: <code>col(x)</code><br>Transpose of matrix x: <code>t(x)</code><br>The value of the determinant of matrix x: <code>det(x)</code><br>If the determinant is not 0, then we can get the inverse of matrix x: <code>solve(x)</code><br>Eigenvalue and eigenvector: <code>y=eigen(x)</code>, then <code>y$val</code> is eigenvalue, <code>y$vec</code> is eigenvector.<br>Multiplication of matrices: <code>a %*% b</code><br>Arithmetic operations and power operation on every element of matrix: <code>+ - * / ^</code>  </p>
-<p><strong>3.Data frames</strong><br>Personally, I think data frame is the most important and common data structure you will deal with in R. A data frame is more general than a matrix in that different columns can contain different modes of data (numeric, character, etc.).<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">patientID= c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</div><div class="line">age = c(<span class="number">25</span>, <span class="number">34</span>, <span class="number">28</span>, <span class="number">52</span>)</div><div class="line">diabetes = c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</div><div class="line">status = c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</div><div class="line">patientdata= data.frame(patientID, age, diabetes, status)</div><div class="line">patientdata   <span class="comment">#patientdata is a data frame.</span></div></pre></td></tr></table></figure></p>
-<p>The different ways to read data from data frame:<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">patientdata[<span class="number">1</span>:<span class="number">2</span>]</div><div class="line">patientdata[c(<span class="string">"diabetes"</span>, <span class="string">"status"</span>)]</div><div class="line">patientdata$age</div></pre></td></tr></table></figure></p>
+<p><strong>3.Data frames</strong><br>Personally, I think data frame is the most important and common data structure you will deal with in R. A data frame is more general than a matrix in that different columns can contain different modes of data (numeric, character, etc.).<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">patientID= c(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">age = c(<span class="number">25</span>, <span class="number">34</span>, <span class="number">28</span>, <span class="number">52</span>)</span><br><span class="line">diabetes = c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</span><br><span class="line">status = c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</span><br><span class="line">patientdata= data.frame(patientID, age, diabetes, status)</span><br><span class="line">patientdata   <span class="comment">#patientdata is a data frame.</span></span><br></pre></td></tr></table></figure></p>
+<p>The different ways to read data from data frame:<br><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">patientdata[<span class="number">1</span>:<span class="number">2</span>]</span><br><span class="line">patientdata[c(<span class="string">"diabetes"</span>, <span class="string">"status"</span>)]</span><br><span class="line">patientdata$age</span><br></pre></td></tr></table></figure></p>
 <h2 id="Useful-mathematical-functions-and-statistical-functions"><a href="#Useful-mathematical-functions-and-statistical-functions" class="headerlink" title="Useful mathematical functions and statistical functions"></a>Useful mathematical functions and statistical functions</h2><p><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-4.JPG" alt="Mathematical Functions" title="Mathematical Functions"><br><img src="https://raw.githubusercontent.com/Anonymous-Y/BlogImage/master/r-intro-5.JPG" alt="Statistical Functions" title="Statistical Functions"></p>
 <h2 id="Useful-data-operation-functions"><a href="#Useful-data-operation-functions" class="headerlink" title="Useful data operation functions"></a>Useful data operation functions</h2><p>1.summary<br>summary is a generic function used to produce result summaries of the results of various model fitting functions.<br><code>summary(data$example)</code> or <code>summary(data)</code>   </p>
 <p>2.sum<br>sum returns the sum of all the values present in its arguments.<br><code>sum(data$example, na.rm=TRUE)</code></p>
@@ -198,17 +198,17 @@ body{ -webkit-animation: bugfix infinite 1s; }
 <p>6.subset<br>Return subsets of vectors, matrices or data frames which meet conditions.<br><code>subset(data, subset, select)</code></p>
 <p>7.aggregate<br>Splits the data into subsets, computes summary statistics for each, and returns the result in a convenient form.<br><code>aggregate(data, by=list(data$variable), mean)</code><br>In this example, based on the column variable, R splits the data into subsets and computes mean of those subsets.</p>
 <h2 id="Reference-books"><a href="#Reference-books" class="headerlink" title="Reference books"></a>Reference books</h2><ul>
-<li><a href="https://www.researchgate.net/publication/239744618_A_Brief_Guide_to_R_for_Beginners_in_Econometrics" target="_blank" rel="external">A Brief Guide to R for Beginners in Econometrics</a>  </li>
-<li><a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="external">R in Action</a> (<a href="http://book.douban.com/subject/20382244/" target="_blank" rel="external">R语言实战</a>)  </li>
-<li><a href="http://www.goodreads.com/book/show/3715510-applied-econometrics-with-r" target="_blank" rel="external">Applied Econometrics with R</a></li>
+<li><a href="https://www.researchgate.net/publication/239744618_A_Brief_Guide_to_R_for_Beginners_in_Econometrics" target="_blank" rel="noopener">A Brief Guide to R for Beginners in Econometrics</a>  </li>
+<li><a href="http://www.goodreads.com/book/show/12404630-r-in-action" target="_blank" rel="noopener">R in Action</a> (<a href="http://book.douban.com/subject/20382244/" target="_blank" rel="noopener">R语言实战</a>)  </li>
+<li><a href="http://www.goodreads.com/book/show/3715510-applied-econometrics-with-r" target="_blank" rel="noopener">Applied Econometrics with R</a></li>
 </ul>
 <h2 id="Reference-websites"><a href="#Reference-websites" class="headerlink" title="Reference websites"></a>Reference websites</h2><ul>
-<li><a href="http://www.rseek.org" target="_blank" rel="external">Rseek</a></li>
-<li><a href="https://www.google.com" target="_blank" rel="external">Google</a></li>
+<li><a href="http://www.rseek.org" target="_blank" rel="noopener">Rseek</a></li>
+<li><a href="https://www.google.com" target="_blank" rel="noopener">Google</a></li>
 </ul>
 <h2 id="Reference-online-courses"><a href="#Reference-online-courses" class="headerlink" title="Reference online courses"></a>Reference online courses</h2><ul>
-<li><a href="https://www.coursera.org/course/rprog" target="_blank" rel="external">Johns Hopkins – R Programming</a></li>
-<li><a href="https://www.edx.org/course/analytics-edge-mitx-15-071x-0" target="_blank" rel="external">MIT – The Analytics Edge</a></li>
+<li><a href="https://www.coursera.org/course/rprog" target="_blank" rel="noopener">Johns Hopkins – R Programming</a></li>
+<li><a href="https://www.edx.org/course/analytics-edge-mitx-15-071x-0" target="_blank" rel="noopener">MIT – The Analytics Edge</a></li>
 </ul>
 
         
