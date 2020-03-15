@@ -83,11 +83,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 		<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick><i class="fa fa-bars"></i></label>
 	  <ul class="menu">
 	    
-	      <li><a href="/">Home</a></li>
-	    
-	      <li><a href="/archives">Archives</a></li>
-	    
-	      <li><a href="/about">About</a></li>
+	      <li><a href="/archives">My Posts</a></li>
 	    
 	    
 	  </ul>
@@ -99,7 +95,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
   	<div class="inner">
       <div class="padding">
     		
-          <h2>A blog for learning</h2>
+          <h2></h2>
         
       </div>
   	</div>
@@ -198,97 +194,6 @@ body{ -webkit-animation: bugfix infinite 1s; }
         
           <div class="alignright">
             <a href="/2016/05/28/threshold/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
-          </div>
-        
-        <div class="clearfix"></div>
-      </footer>
-    </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  
-    <div class="post-content-index">
-  
-      
-        <header>
-          <div class="icon"></div>
-            
-    
-      <h1 class="title transition"><a href="/2016/03/18/quiz/">Python Quiz</a></h1>
-    
-  
-          <ul>
-            <li>
-              <span class="heading-span">Posted on: </span>
-              <time datetime="2016-03-19T02:52:17.000Z">2016-03-18</time>
-            </li>
-            
-              <li>
-                <span class="heading-span">By: </span>
-
-                
-                  <a href="/">Zichao Yang</a>
-                
-
-              </li>
-            
-            <li>
-              <span class="heading-span">With: </span>
-              
-                <a href="/2016/03/18/quiz/#disqus_thread">Comments</a>
-
-              
-          </ul>
-        </header>
-      
-      <div class="entry">
-        
-          
-            <ul>
-<li>If you need to read the original questions, please visit the website of <a href="http://bayeswhu.github.io/teaching/qe/Quiz.html" target="_blank" rel="external">Quantitative Economics </a>.</li>
-<li>Warning: This is my practice code for Quiz, I do not guarantee the accuracy of my answer</li>
-</ul>
-<h1 id="Largest-palindrome-product"><a href="#Largest-palindrome-product" class="headerlink" title="Largest palindrome product"></a>Largest palindrome product</h1><ul>
-<li>A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.</li>
-<li>Find the largest palindrome made from the product of two 3-digit numbers.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">result=[]</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">1000</span>):</div><div class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">1000</span>):</div><div class="line">        num = x*y</div><div class="line">        rnum = int(str(num)[::<span class="number">-1</span>])  <span class="comment">#used to change the place of number</span></div><div class="line">        <span class="comment">#print(num)</span></div><div class="line">        <span class="comment">#print(rnum)</span></div><div class="line">        <span class="keyword">if</span> num==rnum:</div><div class="line">            result1=num,x,y</div><div class="line">            result.append(result1)</div><div class="line"><span class="comment">#print(result)</span></div><div class="line">sorted_result=sorted(result,key=<span class="keyword">lambda</span> t:t[<span class="number">0</span>],reverse=<span class="number">1</span>)  <span class="comment">#use sorted function</span></div><div class="line">print(sorted_result[<span class="number">1</span>])</div></pre></td></tr></table></figure>
-<h1 id="10001st-prime"><a href="#10001st-prime" class="headerlink" title="10001st prime"></a>10001st prime</h1><ul>
-<li>By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.</li>
-<li>What is the 10001st prime number?</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">result=[]</div><div class="line"><span class="keyword">import</span> math</div><div class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">3</span>,<span class="number">10000</span>):</div><div class="line">    <span class="keyword">if</span> <span class="number">0</span> <span class="keyword">not</span> <span class="keyword">in</span> [n%i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, int(math.sqrt(n))+<span class="number">1</span>)]:</div><div class="line"> 		result.append(n)</div><div class="line">print(result[<span class="number">1000</span>])</div><div class="line"></div><div class="line"><span class="comment"># cannot use the usual loop, like:</span></div><div class="line"><span class="comment"># for i in range(2, int(math.sqrt(n))+1)：</span></div><div class="line"><span class="comment"># if n%i != 0: result.append(n)</span></div><div class="line"><span class="comment"># this code would lead to repeat count and the outcome is also incorrect.</span></div></pre></td></tr></table></figure>
-<h1 id="Special-Pythagorean-triplet"><a href="#Special-Pythagorean-triplet" class="headerlink" title="Special Pythagorean triplet"></a>Special Pythagorean triplet</h1><ul>
-<li>A Pythagorean triplet is a set of three natural numbers, a &lt; b &lt; c, for which, a^2+b^2=c^2</li>
-<li>There exists exactly one Pythagorean triplet for which a+b+c=1000. Find the product abc.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># primary method</span></div><div class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">1000</span>):</div><div class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> range(a,<span class="number">1000</span>):</div><div class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> range(b,<span class="number">1000</span>):</div><div class="line">            <span class="keyword">if</span> a*a+b*b==c*c <span class="keyword">and</span> a+b+c==<span class="number">1000</span>:</div><div class="line">                print(a,b,c)</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># more elegant method</span></div><div class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">3</span>,<span class="number">1000</span>):</div><div class="line">    <span class="keyword">if</span> a%<span class="number">2</span>==<span class="number">0</span>:</div><div class="line">        r=range(<span class="number">2</span>,int(a/<span class="number">2</span>)+<span class="number">2</span>,<span class="number">2</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        r=range(<span class="number">1</span>,int(a/<span class="number">2</span>)+<span class="number">1</span>,<span class="number">2</span>)</div><div class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> r:</div><div class="line">        b=(a*a-x*x)/(<span class="number">2</span>*x)</div><div class="line">        c=(a*a+x*x)/(<span class="number">2</span>*x)</div><div class="line">        <span class="keyword">if</span> b==int(b)<span class="keyword">and</span> a+int(b)+int(c)==<span class="number">1000</span>:</div><div class="line">            print(a,int(b),int(c))</div></pre></td></tr></table></figure>
-<h1 id="Largest-product-in-a-series"><a href="#Largest-product-in-a-series" class="headerlink" title="Largest product in a series"></a>Largest product in a series</h1><ul>
-<li>The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.</li>
-</ul>
-<p>731671765313306249192251196744265747423553491949349698352031277450632623957831 801698480186947885184385861560789112949495459501737958331952853208805511125406 987471585238630507156932909632952274430435576689664895044524452316173185640309 871112172238311362229893423380308135336276614282806444486645238749303589072962 904915604407723907138105158593079608667017242712188399879790879227492190169972 088809377665727333001053367881220235421809751254540594752243525849077116705560 136048395864467063244157221553975369781797784617406495514929086256932197846862 248283972241375657056057490261407972968652414535100474821663704844031998900088 952434506585412275886668811642717147992444292823086346567481391912316282458617 866458359124566529476545682848912883142607690042242190226710556263211111093705 442175069416589604080719840385096245544436298123098787992724428490918884580156 166097919133875499200524063689912560717606058861164671094050775410022569831552 0005593572972571636269561882670428252483600823257530420752963450</p>
-<ul>
-<li>Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">line=str(<span class="string">'7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450'</span>)</div><div class="line">list=[]</div><div class="line">result=[]</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> line:</div><div class="line">    list.append(int(i))</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">987</span>):</div><div class="line">    tempt=list[i]*list[i+<span class="number">1</span>]*list[i+<span class="number">2</span>]*list[i+<span class="number">3</span>]*list[i+<span class="number">4</span>]*list[i+<span class="number">5</span>]*list[i+<span class="number">6</span>]*list[i+<span class="number">7</span>]*list[i+<span class="number">8</span>]*list[i+<span class="number">9</span>]*list[i+<span class="number">10</span>]*list[i+<span class="number">11</span>]*list[i+<span class="number">12</span>]</div><div class="line">    result1=tempt,list[i],list[i+<span class="number">1</span>],list[i+<span class="number">2</span>],list[i+<span class="number">3</span>],list[i+<span class="number">4</span>],list[i+<span class="number">5</span>],list[i+<span class="number">6</span>],list[i+<span class="number">7</span>],list[i+<span class="number">8</span>],list[i+<span class="number">9</span>],list[i+<span class="number">10</span>],list[i+<span class="number">11</span>],list[i+<span class="number">12</span>]</div><div class="line">    <span class="comment">#print(result1)</span></div><div class="line">    result.append(result1)</div><div class="line">sorted_result=sorted(result,key=<span class="keyword">lambda</span> t:t[<span class="number">0</span>],reverse=<span class="number">1</span>)</div><div class="line">print(sorted_result[<span class="number">1</span>])</div></pre></td></tr></table></figure>
-<h1 id="Summation-of-primes"><a href="#Summation-of-primes" class="headerlink" title="Summation of primes"></a>Summation of primes</h1><ul>
-<li>The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.</li>
-<li>Find the sum of all the primes below two million.</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> math</div><div class="line">result=<span class="number">2</span></div><div class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">3</span>,<span class="number">2000000</span>):</div><div class="line">    <span class="keyword">if</span> <span class="number">0</span> <span class="keyword">not</span> <span class="keyword">in</span> [n%i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, int(math.sqrt(n))+<span class="number">1</span>)]:   </div><div class="line">        result=result+n                                       </div><div class="line">print(result)</div></pre></td></tr></table></figure>
-<p>I am pretty sure this is not the most effective method. The code is still robust on the data scale of 200000, but I cannot get the result if the data scale expands to 2000000. I am still looking for some alternative methods.</p>
-
-          
-        
-      </div>
-      <footer>
-        
-          <div class="alignright">
-            <a href="/2016/03/18/quiz/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
           </div>
         
         <div class="clearfix"></div>
@@ -569,7 +474,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 <ul>
 <li>Install packages<br>1.Install packages manually<br>Download package from <a href="http://www.cran.r-project.org" target="_blank" rel="external">This Page</a>, RStudio-&gt;Tools-&gt;Install Packages<br>2.Install packages by using command <code>install.package()</code><br>(1) Use command <code>install.packages()</code>, then choose the package you need.<br>(2) Use command <code>install.packages(&quot;lmtest&quot;)</code>, R will install the “lmtest” package and those supporting packages automatically.  </li>
 </ul>
-<ol>
+<ol start="3">
 <li>Load packages by using command <code>library()</code><br>Use <code>library(lmtest)</code> to load the “lmtest” package before you want to use this package.<br><strong>Note:</strong> You only need to install packages once, but you need to reload those needed packages every time after you restart RStudio.</li>
 <li>Update packages<br>Use command <code>update.packages()</code> to update those packages you have installed.</li>
 </ol>
@@ -632,11 +537,71 @@ body{ -webkit-animation: bugfix infinite 1s; }
 
 
   
+    <article class="post">
+  
+  
+    <div class="post-content-index">
+  
+      
+        <header>
+          <div class="icon"></div>
+            
+    
+      <h1 class="title transition"><a href="/2015/11/17/lltxdh/">李录谈现代化</a></h1>
+    
+  
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2015-11-18T02:20:49.000Z">2015-11-17</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
+
+                
+                  <a href="/">Zichao Yang</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
+              
+                <a href="/2015/11/17/lltxdh/#disqus_thread">Comments</a>
+
+              
+          </ul>
+        </header>
+      
+      <div class="entry">
+        
+          
+            <ul>
+<li>全文请见<a href="http://liluchineseblog.tumblr.com/" target="_blank" rel="external">李录的Tumblr博客</a>，仅代表作者观点，仅供参考。</li>
+</ul>
+<p>&nbsp;</p>
+<h3 id="第一章-老学问与新史学"><a href="#第一章-老学问与新史学" class="headerlink" title="第一章 老学问与新史学"></a><a href="http://liluchineseblog.tumblr.com/post/93233490705/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E4%B8%80" target="_blank" rel="external">第一章 老学问与新史学</a></h3><h3 id="第二章-文明的轨迹"><a href="#第二章-文明的轨迹" class="headerlink" title="第二章 文明的轨迹"></a><a href="http://liluchineseblog.tumblr.com/post/93233625290/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E4%BA%8C" target="_blank" rel="external">第二章 文明的轨迹</a></h3><h3 id="第三章-1-0、2-0、3-0文明的划分及人类文明的第一次飞跃"><a href="#第三章-1-0、2-0、3-0文明的划分及人类文明的第一次飞跃" class="headerlink" title="第三章 1.0、2.0、3.0文明的划分及人类文明的第一次飞跃"></a><a href="http://liluchineseblog.tumblr.com/post/93233807295/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E4%B8%89" target="_blank" rel="external">第三章 1.0、2.0、3.0文明的划分及人类文明的第一次飞跃</a></h3><h3 id="第四章-农业文明的诞生"><a href="#第四章-农业文明的诞生" class="headerlink" title="第四章 农业文明的诞生"></a><a href="http://liluchineseblog.tumblr.com/post/93234017105/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%9B%9B" target="_blank" rel="external">第四章 农业文明的诞生</a></h3><h3 id="第五章-农业文明的天花板及三次冲顶"><a href="#第五章-农业文明的天花板及三次冲顶" class="headerlink" title="第五章 农业文明的天花板及三次冲顶"></a><a href="http://liluchineseblog.tumblr.com/post/93234088080/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E4%BA%94" target="_blank" rel="external">第五章 农业文明的天花板及三次冲顶</a></h3><h3 id="第六章-农业文明中的思想革命与制度创新"><a href="#第六章-农业文明中的思想革命与制度创新" class="headerlink" title="第六章 农业文明中的思想革命与制度创新"></a><a href="http://liluchineseblog.tumblr.com/post/93234276070/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%85%AD" target="_blank" rel="external">第六章 农业文明中的思想革命与制度创新</a></h3><h3 id="第七章-美洲大陆的发现及其划时代影响"><a href="#第七章-美洲大陆的发现及其划时代影响" class="headerlink" title="第七章 美洲大陆的发现及其划时代影响"></a><a href="http://liluchineseblog.tumblr.com/post/93234325045/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E4%B8%83" target="_blank" rel="external">第七章 美洲大陆的发现及其划时代影响</a></h3><h3 id="第八章-现代化的诞生"><a href="#第八章-现代化的诞生" class="headerlink" title="第八章 现代化的诞生"></a><a href="http://liluchineseblog.tumblr.com/post/93234461870/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%85%AB" target="_blank" rel="external">第八章 现代化的诞生</a></h3><h3 id="第九章-现代化有没有可能在中国诞生"><a href="#第九章-现代化有没有可能在中国诞生" class="headerlink" title="第九章 现代化有没有可能在中国诞生"></a><a href="http://liluchineseblog.tumblr.com/post/93234559820/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E4%B9%9D" target="_blank" rel="external">第九章 现代化有没有可能在中国诞生</a></h3><h3 id="第十章-现代化的传播与现代化的道路之争"><a href="#第十章-现代化的传播与现代化的道路之争" class="headerlink" title="第十章 现代化的传播与现代化的道路之争"></a><a href="http://liluchineseblog.tumblr.com/post/93238356135/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81" target="_blank" rel="external">第十章 现代化的传播与现代化的道路之争</a></h3><h3 id="第十一章-现代化的本质和铁律"><a href="#第十一章-现代化的本质和铁律" class="headerlink" title="第十一章 现代化的本质和铁律"></a><a href="http://liluchineseblog.tumblr.com/post/93238457670/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E4%B8%80" target="_blank" rel="external">第十一章 现代化的本质和铁律</a></h3><h3 id="第十二章-对中国未来几十年的预测——经济篇"><a href="#第十二章-对中国未来几十年的预测——经济篇" class="headerlink" title="第十二章 对中国未来几十年的预测——经济篇"></a><a href="http://liluchineseblog.tumblr.com/post/93238560235/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E4%BA%8C" target="_blank" rel="external">第十二章 对中国未来几十年的预测——经济篇</a></h3><h3 id="第十三章-对中国未来几十年的预测——文化篇"><a href="#第十三章-对中国未来几十年的预测——文化篇" class="headerlink" title="第十三章 对中国未来几十年的预测——文化篇"></a><a href="http://liluchineseblog.tumblr.com/post/93238765745/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E4%B8%89" target="_blank" rel="external">第十三章 对中国未来几十年的预测——文化篇</a></h3><h3 id="第十四章-对中国未来几十年的预测——政治篇"><a href="#第十四章-对中国未来几十年的预测——政治篇" class="headerlink" title="第十四章 对中国未来几十年的预测——政治篇"></a><a href="http://liluchineseblog.tumblr.com/post/93238920940/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E5%9B%9B" target="_blank" rel="external">第十四章 对中国未来几十年的预测——政治篇</a></h3><h3 id="第十五章-3-0时代的东西方关系"><a href="#第十五章-3-0时代的东西方关系" class="headerlink" title="第十五章 3.0时代的东西方关系"></a><a href="http://liluchineseblog.tumblr.com/post/93239041335/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E4%BA%94" target="_blank" rel="external">第十五章 3.0时代的东西方关系</a></h3><h3 id="第十六章-人类未来的共同命运"><a href="#第十六章-人类未来的共同命运" class="headerlink" title="第十六章 人类未来的共同命运"></a><a href="http://liluchineseblog.tumblr.com/post/93252631205/%E6%9D%8E%E5%BD%95%E8%B0%88%E7%8E%B0%E4%BB%A3%E5%8C%96%E5%8D%81%E5%85%AD" target="_blank" rel="external">第十六章 人类未来的共同命运</a></h3>
+          
+        
+      </div>
+      <footer>
+        
+          <div class="alignright">
+            <a href="/2015/11/17/lltxdh/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
+          </div>
+        
+        <div class="clearfix"></div>
+      </footer>
+    </div>
+</article>
+
+
+
+  
 
   <nav id="pagination">
   
-  
-    <a href="/archives/page/2/" class="alignright next">Next</a>
   
   <div class="clearfix"></div>
 </nav>
@@ -664,10 +629,6 @@ body{ -webkit-animation: bugfix infinite 1s; }
       </li>
     
       <li>
-        <a href="/2016/03/18/quiz/">Python Quiz</a>
-      </li>
-    
-      <li>
         <a href="/2015/12/13/r-intro-3/">R Introduction Part 3</a>
       </li>
     
@@ -677,6 +638,10 @@ body{ -webkit-animation: bugfix infinite 1s; }
     
       <li>
         <a href="/2015/12/11/r-intro-1/">R Introduction Part 1</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/17/lltxdh/">李录谈现代化</a>
       </li>
     
   </ul>
@@ -689,7 +654,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 <div class="widget tag">
   <h3 class="title">Tags</h3>
   
-    <a href="/tags/Python/">Python<small>5</small></a>
+    <a href="/tags/Python/">Python<small>0</small></a>
   
     <a href="/tags/R/">R<small>3</small></a>
   
@@ -706,7 +671,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
   <footer id="footer" class="inner"><div class="padding">
 	<div class="alignleft">
 	  
-	  &copy; 2017 Zichao Yang
+	  &copy; 2020 Zichao Yang
 	  
 	  Powerd by <a href="http://hexo.io/" target="_blank">hexo</a>
 	  and Theme by <a href="https://github.com/halfer53/metro-light" target="_blank">metro-light</a>
@@ -718,8 +683,8 @@ body{ -webkit-animation: bugfix infinite 1s; }
 			<a href="https://github.com/Anonymous-Y" target="_blank" title="Zichao Yang Github"><i class="fa fa-github-square"></i></a>	
 		
 		
+			<a href="https://twitter.com/Abracadabra2628" target="_blank" title="Zichao Yang Twitter"><i class="fa fa-twitter-square"></i></a>	
 		
-			<a href="http://www.weibo.com/2696788542" target="_blank" title="Zichao Yang Weibo"><i class="fa fa-weibo"></i></a>	
 		
 		
 		

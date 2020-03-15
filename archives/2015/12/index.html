@@ -83,11 +83,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 		<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick><i class="fa fa-bars"></i></label>
 	  <ul class="menu">
 	    
-	      <li><a href="/">Home</a></li>
-	    
-	      <li><a href="/archives">Archives</a></li>
-	    
-	      <li><a href="/about">About</a></li>
+	      <li><a href="/archives">My Posts</a></li>
 	    
 	    
 	  </ul>
@@ -99,7 +95,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
   	<div class="inner">
       <div class="padding">
     		
-          <h2>A blog for learning</h2>
+          <h2></h2>
         
       </div>
   	</div>
@@ -380,7 +376,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 <ul>
 <li>Install packages<br>1.Install packages manually<br>Download package from <a href="http://www.cran.r-project.org" target="_blank" rel="external">This Page</a>, RStudio-&gt;Tools-&gt;Install Packages<br>2.Install packages by using command <code>install.package()</code><br>(1) Use command <code>install.packages()</code>, then choose the package you need.<br>(2) Use command <code>install.packages(&quot;lmtest&quot;)</code>, R will install the “lmtest” package and those supporting packages automatically.  </li>
 </ul>
-<ol>
+<ol start="3">
 <li>Load packages by using command <code>library()</code><br>Use <code>library(lmtest)</code> to load the “lmtest” package before you want to use this package.<br><strong>Note:</strong> You only need to install packages once, but you need to reload those needed packages every time after you restart RStudio.</li>
 <li>Update packages<br>Use command <code>update.packages()</code> to update those packages you have installed.</li>
 </ol>
@@ -443,70 +439,6 @@ body{ -webkit-animation: bugfix infinite 1s; }
 
 
   
-    <article class="post">
-  
-  
-    <div class="post-content-index">
-  
-      
-        <header>
-          <div class="icon"></div>
-            
-    
-      <h1 class="title transition"><a href="/2015/12/10/python-homework-5/">Python Homework Series 5</a></h1>
-    
-  
-          <ul>
-            <li>
-              <span class="heading-span">Posted on: </span>
-              <time datetime="2015-12-10T19:12:18.000Z">2015-12-10</time>
-            </li>
-            
-              <li>
-                <span class="heading-span">By: </span>
-
-                
-                  <a href="/">Zichao Yang</a>
-                
-
-              </li>
-            
-            <li>
-              <span class="heading-span">With: </span>
-              
-                <a href="/2015/12/10/python-homework-5/#disqus_thread">Comments</a>
-
-              
-          </ul>
-        </header>
-      
-      <div class="entry">
-        
-          
-            <ul>
-<li>If you need to read the original questions, please visit the website of <a href="http://bayeswhu.github.io/teaching/qe/Lec7.html#1" target="_blank" rel="external">Quantitative Economics </a>.</li>
-<li>Warning: This is my practice code for exercise of lecture 7, I do not guarantee the accuracy of my answer. </li>
-</ul>
-<h1 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">homemade_bisect</span><span class="params">(f,a,b,tol)</span>:</span></div><div class="line">    lower,upper=a,b</div><div class="line">    <span class="keyword">while</span> upper-lower&gt;tol:</div><div class="line">        middle=<span class="number">0.5</span>*(upper+lower)</div><div class="line">        <span class="keyword">if</span> f(middle)&gt;<span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> homemade_bisect(f,lower,middle,tol)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> homemade_bisect(f,middle,upper,tol)</div><div class="line">    <span class="keyword">return</span> <span class="number">0.5</span>*(upper+lower)</div></pre></td></tr></table></figure>
-<p>The function you want to implement root finding is f, the range for root finding is (a,b) and the parameter tol is used to indicate when to stop this process.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f = <span class="keyword">lambda</span> x: np.sin(<span class="number">4</span> * (x - <span class="number">0.25</span>)) + x + x**<span class="number">20</span> - <span class="number">1</span></div><div class="line">homemade_bisect(f,<span class="number">0</span>,<span class="number">1</span>,<span class="number">10e-5</span>)</div></pre></td></tr></table></figure>
-          
-        
-      </div>
-      <footer>
-        
-          <div class="alignright">
-            <a href="/2015/12/10/python-homework-5/#more" class="more-link">Continue Reading<i class="fa fa-long-arrow-right fa-1"></i></a>
-          </div>
-        
-        <div class="clearfix"></div>
-      </footer>
-    </div>
-</article>
-
-
-
-  
 
   <nav id="pagination">
   
@@ -537,10 +469,6 @@ body{ -webkit-animation: bugfix infinite 1s; }
       </li>
     
       <li>
-        <a href="/2016/03/18/quiz/">Python Quiz</a>
-      </li>
-    
-      <li>
         <a href="/2015/12/13/r-intro-3/">R Introduction Part 3</a>
       </li>
     
@@ -550,6 +478,10 @@ body{ -webkit-animation: bugfix infinite 1s; }
     
       <li>
         <a href="/2015/12/11/r-intro-1/">R Introduction Part 1</a>
+      </li>
+    
+      <li>
+        <a href="/2015/11/17/lltxdh/">李录谈现代化</a>
       </li>
     
   </ul>
@@ -562,7 +494,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
 <div class="widget tag">
   <h3 class="title">Tags</h3>
   
-    <a href="/tags/Python/">Python<small>5</small></a>
+    <a href="/tags/Python/">Python<small>0</small></a>
   
     <a href="/tags/R/">R<small>3</small></a>
   
@@ -579,7 +511,7 @@ body{ -webkit-animation: bugfix infinite 1s; }
   <footer id="footer" class="inner"><div class="padding">
 	<div class="alignleft">
 	  
-	  &copy; 2017 Zichao Yang
+	  &copy; 2020 Zichao Yang
 	  
 	  Powerd by <a href="http://hexo.io/" target="_blank">hexo</a>
 	  and Theme by <a href="https://github.com/halfer53/metro-light" target="_blank">metro-light</a>
@@ -591,8 +523,8 @@ body{ -webkit-animation: bugfix infinite 1s; }
 			<a href="https://github.com/Anonymous-Y" target="_blank" title="Zichao Yang Github"><i class="fa fa-github-square"></i></a>	
 		
 		
+			<a href="https://twitter.com/Abracadabra2628" target="_blank" title="Zichao Yang Twitter"><i class="fa fa-twitter-square"></i></a>	
 		
-			<a href="http://www.weibo.com/2696788542" target="_blank" title="Zichao Yang Weibo"><i class="fa fa-weibo"></i></a>	
 		
 		
 		
